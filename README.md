@@ -15,11 +15,10 @@ Varied exercises of easy, medium and difficult level, about the subject taught i
 Weekly work developed during the practical classes. There are always five exercises to do. Available on [FPRO Test](https://fpro.fe.up.pt/test). <br/>
 
 ### PE = Practical on computer Evaluation <br/>
-Individual programming assignments. Available on [FPRO Test](https://fpro.fe.up.pt/test). <br/>
+Individual programming assignments. Available on [FPRO Test](https://fpro.fe.up.pt/test).
 
-<br/>
-<br/>
-<br/> 
+
+
 ***Bibliography:*** 
 
 Peter Wentworth, Jeffrey Elkner, Allen B. Downey, and Chris Meyers; [How to Think Like a Computer Scientist](http://openbookproject.net/thinkcs/python/english3e/index.html)<br/>
