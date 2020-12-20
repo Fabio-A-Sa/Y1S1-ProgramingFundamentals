@@ -23,7 +23,7 @@ Individual programming assignments. Available on [FPRO Test](https://fpro.fe.up.
 ***Bibliography:*** 
 
 Peter Wentworth, Jeffrey Elkner, Allen B. Downey, and Chris Meyers; [How to Think Like a Computer Scientist](http://openbookproject.net/thinkcs/python/english3e/index.html)<br/>
-[FPRO Play/Test](fpro.fe.up.pt), site available only in FEUP's netwoork<br/>
+[FPRO Play/Test](https://fpro.fe.up.pt), site available only in FEUP's netwoork<br/>
 [Jupyter Notebooks](https://github.com/fpro-feup/notebooks), created by JCL for the theoretical lectures<br/>
 
 
