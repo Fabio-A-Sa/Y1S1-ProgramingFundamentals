@@ -7,9 +7,7 @@ This repository contains all the exercises and assessments of the UC Programming
 
 ***Bibliography:*** 
 
-Peter Wentworth, Jeffrey Elkner, Allen B. Downey, and Chris Meyers; [How to Think Like a Computer Scientist](http://openbookproject.net/thinkcs/python/english3e/index.html)
-
-[FPRO Play/Test](fpro.fe.up.pt), site available only in FEUP's netwoork
+Peter Wentworth, Jeffrey Elkner, Allen B. Downey, and Chris Meyers; [How to Think Like a Computer Scientist](http://openbookproject.net/thinkcs/python/english3e/index.html)   [FPRO Play/Test](fpro.fe.up.pt), site available only in FEUP's netwoork
 
 
 
