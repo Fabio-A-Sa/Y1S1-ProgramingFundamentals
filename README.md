@@ -18,8 +18,8 @@ Weekly work developed during the practical classes. There are always five exerci
 Individual programming assignments. Available on [FPRO Test](https://fpro.fe.up.pt/test).
 
 \
+
 \
- 
   
 ***Bibliography:*** 
 
