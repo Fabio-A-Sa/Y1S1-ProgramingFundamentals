@@ -17,7 +17,8 @@ Weekly work developed during the practical classes. There are always five exerci
 ### PE = Practical on computer Evaluation <br/>
 Individual programming assignments. Available on [FPRO Test](https://fpro.fe.up.pt/test).
 
-
+\
+\
  
   
 ***Bibliography:*** 
