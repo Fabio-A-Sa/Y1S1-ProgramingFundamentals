@@ -4921,7 +4921,353 @@ def main():
 if __name__ == "__main__":
     main()
 
+                 Recursion - Play 08
 
+def gcd_rec(n1, n2):
+    
+    resto = n1%n2
+    if resto == 0:
+        return n2
+    
+    else:
+        return gcd_rec(n2,resto)
+
+# Other option without recursion
+# def gcd_rec(n1, n2):
+#     from math import gcd as euclid
+#     return euclid(n1,n2)
+
+
+def is_odd(a, b):
+    b = b - 1
+    resto = (juggler(a,b))%2
+    return resto != 0
+
+def juggler(n, p):
+    
+    if p == 0:
+        return n
+    
+    else:
+        from math import floor as f
+        
+        if is_odd (n, p):
+            return f((juggler(n, p-1))**(3/2))
+        else:
+            return f((juggler(n, p-1))**(1/2))
+        
+def sum_digits_rec(n):
+    
+    if len(str(n)) == 1:
+        return n 
+    
+    else:
+        return n%10 + sum_digits_rec(n//10)
+
+def separação(atuple):
+    
+    total = []  
+    total.append(atuple)
+    atuple = list(atuple)
+    
+    for item in atuple:
+        if type(item) != type(("f","a","b")):
+            continue
+        else:
+            subtotal = biggest_member(item) # Fragmentação
+            total.append(item)
+            total.append(subtotal)
+            
+    return total
+
+def biggest_member(atuple):
+
+    all_tuples = separação(atuple)
+    item_max = all_tuples[0]
+    
+    for item in all_tuples:
+        if len(item) > len(item_max):
+            item_max = item
+    
+    return item_max
+        
+atuple = ((6, (10, 20, 5, 7, 50, 10, 70, -2), 8, 9, 10, 11), 5, (2, 3, 1))
+print(biggest_member(atuple))
+
+
+def find_treasure(pos, steps):
+    
+    if len(steps) == 0:
+        return pos
+    
+    else:
+        (x, y) = pos
+        
+        if steps[0] == "up":
+            y = y + 1
+            steps.remove(steps[0])
+            return find_treasure((x,y), steps)
+        if steps[0] == "down":
+            y = y - 1
+            steps.remove(steps[0])
+            return find_treasure((x,y), steps) 
+        if steps[0] == "left":
+            x = x - 1
+            steps.remove(steps[0])
+            return find_treasure((x,y), steps)
+        if steps[0] == "right":
+            x = x + 1
+            steps.remove(steps[0])
+            return find_treasure((x,y), steps)
+    
+    
+def last_man_standing(alist, step, initial_idx=0):
+    
+    if len(alist) == 1:
+        return alist[0]
+    
+    else:
+        idx = (step-1+initial_idx)%(len(alist))
+        alist.remove(alist[idx])
+        return last_man_standing(alist, step, idx)
+
+Python3 implementation of the  
+above approach  
+  
+# Function to print the output  
+def printTheArray(arr, n):  
+  
+    for i in range(0, n):  
+        print(arr[i], end = " ")  
+      
+    print() 
+  
+# Function to generate all binary strings  
+def generateAllBinaryStrings(n, arr, i):  
+  
+    if i == n: 
+        printTheArray(arr, n)  
+        return
+      
+    # First assign "0" at ith position  
+    # and try for all other permutations  
+    # for remaining positions  
+    arr[i] = 0
+    generateAllBinaryStrings(n, arr, i + 1)  
+  
+    # And then assign "1" at ith position  
+    # and try for all other permutations  
+    # for remaining positions  
+    arr[i] = 1
+    generateAllBinaryStrings(n, arr, i + 1)  
+  
+# Driver Code  
+if __name__ == "__main__":  
+  
+    n = 4
+    arr = [None] * n  
+  
+    # Print all binary strings  
+    generateAllBinaryStrings(n, arr, 0)  
+  
+dict_numbers = {1:2, 2:3}
+def no_consecutives1(k):
+    # Fibonacci sequence with dict
+
+    if k in dict_numbers:
+        return dict_numbers[k]
+    
+    else:
+        valor = no_consecutives1(k-1) + no_consecutives1(k-2)
+        dict_numbers[k] = valor
+        
+        return dict_numbers[k]
+        
+# print(no_consecutives1(999))
+
+
+
+def permutations(atuple):
+    
+    all_permutations = []
+    
+    for x in range(0, len(atuple)):
+        for y in range(x, len(atuple)):
+            for z in range(y, len(atuple)):
+                all_permutations.append((atuple[x], atuple[y], atuple[z]))
+    return set(all_permutations)
+
+atuple = ('hello', 'world')
+print(permutations(atuple))
+
+
+
+def permutations(atuple):
+    
+    alist = []
+    
+    if len(atuple) == 1:
+        return atuple
+    
+    else:
+        primeira = atuple[0]
+        resto = atuple[1:]
+        alist.append(primeira)
+        alist.append(permutations(resto))
+    
+    return alist
+
+atuple = ('hello', 'world')
+print(permutations(atuple))
+
+
+
+def digits_average(n):
+    
+    from math import ceil as c
+    
+    if n < 10:
+        return c(n%10)
+    
+    elif n < 100:
+        return c((digits_average(n%10) + digits_average(n//10))/2)
+    
+    elif n < 1000:
+        return c((digits_average(n%100) + digits_average(n//100))/2)
+    
+    elif n < 10000:
+        return c((digits_average(n%1000) + digits_average(n//1000))/2)
+    
+n = 158
+print(digits_average(158))
+
+
+
+def evaluate(a, x):
+    from functools import reduce as r
+    expoentes = [e for e in range(len(a))]
+    fatores = [n*(x**e) for n,e in zip(a,expoentes)]
+    return r(lambda x,y: x+y, fatores)
+    
+    
+a = [1, 2, 4, 6, 8]
+x = 2
+print(evaluate(a,x))
+
+
+def map_filter_reduce(lst, f1, f2, f3):
+    
+    from functools import reduce as r
+    
+    final = list(filter(f1, lst))
+    semi = list(map(f2, final))
+    return int(r(f3, semi))
+
+def map_filter_reduce(lst, f1, f2, f3):
+    from functools import reduce as r
+    return int(r(f3, list(map(f2, list(filter(f1, lst))))))
+
+
+def rearrange(l):
+    negative_numbers = list(filter(lambda x: x <= 0 , l))
+    positive_numbers = list(filter(lambda y: y > 0, l))
+    return negative_numbers + positive_numbers
+
+l = [50, -30, 0, -10, 10]
+print(rearrange(l))
+
+
+def generator(intlist):
+    numbers = []
+    for item in intlist:
+        (início, fim) = item
+        numbers = numbers + [x for x in range(início, fim+1)]
+    for n in numbers:
+        yield n
+    
+intlist = [(0, 0), (2, 2)]
+print(generator(intlist))
+
+def generator(intlist):
+    numbers = []
+    for item in intlist:
+        (início, fim) = item
+        numbers = numbers + [x for x in range(início, fim+1)]
+    yield n for n in numbers:
+
+
+def to_celsius(t):
+    return list(map(lambda c: round(((c-32)/1.8), 1), t))
+
+
+def to_fahrenheit(t):
+    return list(map(lambda f: round(((f*1.8)+32), 2), t))
+
+
+def paint(n, boards):
+   
+    boards = sorted(boards)
+    
+    if n == 1:
+        return max(boards)
+    
+    else:
+        tentativas = [(max(boards[:i]) + paint(n - 1, boards[i:])) for i in range(1, len(boards) - n + 2)]
+        return tentativas
+        
+    
+n = 3
+boards = [60, 70, 10, 20, 40, 50, 10, 40]
+print(paint(n, boards))
+
+
+def permutations(atuple):
+
+    if len(atuple) == 1:
+        return set((atuple,))
+    
+    if len(atuple) == 2:
+        new_tuple = ((atuple[0], atuple[1]), (atuple[1], atuple[0]))
+        return set(new_tuple)
+    
+    else:
+        permutações = []
+        for o in range(len(atuple)):
+            original = atuple[o]
+            outras_partes = atuple[:o] + atuple[o+1:]
+            for s in permutations(outras_partes):
+                
+                permutações.append(((original), s))
+                
+    permutações = set(permutações)
+    return permutações
+    
+# atuple = ('A', 'B', 'C')
+# print(permutations(atuple))
+    
+    
+def permutations(atuple):
+
+    if len(atuple) == 1:
+        return set((atuple,))
+    
+    if len(atuple) == 2:
+        new_tuple = ((atuple[0], atuple[1]), (atuple[1], atuple[0]))
+        return set(new_tuple)
+    
+    else:
+        permutações = []
+        for o in range(len(atuple)):
+            outras_partes = atuple[:o] + atuple[o+1:]
+            for s in range(len(permutations(outras_partes))):
+                
+                permutações.append((atuple[o] + outras_partes[s]))
+                
+    permutações = set(permutações)
+    return permutações
+    
+atuple = ('A', 'B', 'C')
+print(permutations(atuple))
 
 
 
