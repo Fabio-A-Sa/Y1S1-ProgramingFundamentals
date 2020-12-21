@@ -5269,6 +5269,74 @@ def permutations(atuple):
 atuple = ('A', 'B', 'C')
 print(permutations(atuple))
 
+def digits_average(n):
+    from math import ceil as c
+    
+    if n < 10:
+        return n%10
+    
+    if n < 100:
+        return c((digits_average(n%10) + digits_average(n//10))/2)
+    
+    if n < 1000:
+        return c((digits_average(n%100) + digits_average(n//100))/2)
+    
+    if n < 10000:
+        return c((digits_average(n%1000) + digits_average(n//1000))/2)
+    
+    
+n = 158
+print(digits_average(n))   
+    
+
+def avg(n,m):
+    if n<10:
+        return m
+    else:
+        m =m*10 + average(n%10, (n//10)%10)
+        return avg(n//10,m)
+    
+def average(a, b):
+    from math import ceil as c
+    return c((a + b) / 2)
+
+def digits_average(n):
+    if n >= 10:
+        avg = 0
+        power = 0
+        if n >= 10:
+            avg = avg + average(n % 10, (n//10) % 10) * 10**power
+            n //= 10
+            power += 1
+        n = avg
+    return n
+
+n = 158
+print(digits_average(n))  
+
+
+def permutations(alist, step=0):
+    
+    if len(alist) == 0:
+        pass
+
+    if len(alist) == 1:
+        return alist[0]
+    
+    if len(alist) == 2:
+        new_list = alist + alist[0] + alist[1]
+        return new_list
+    
+    else: # 3 or more
+        permutações = set()
+        for idx in range(len(atuple)):
+            for other_thing in permutations(atuple[:idx] + atuple[idx+1:]):
+                permutações.add(((atuple[idx],) + other_thing))
+                
+    return permutações
+    
+# atuple = ('A', 'B', 'C')
+# print(permutations(atuple))                 
 
 
 
