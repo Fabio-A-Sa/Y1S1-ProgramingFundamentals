@@ -1,0 +1,5 @@
+# This programm was created by @Fábio Sá
+
+a = "Hello"
+b = a + " world!"
+print(b)
