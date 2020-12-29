@@ -1,3 +1,6 @@
+# Created on October, 2020
+# @author: Fábio Araújo de Sá
+
 import math
 x = int(input())*math.pi/180
 a = math.sin(x)
