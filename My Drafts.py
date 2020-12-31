@@ -5341,7 +5341,263 @@ def permutations(alist, step=0):
 # atuple = ('A', 'B', 'C')
 # print(permutations(atuple))                 
 
+from math import ceil, floor, pi, e
+a = ceil(e)
+b = floor(pi)
+c = a - b
+print(c)
 
+n = 0
+while n < 3:
+    print("Ho!")
+    n = n + 1
+print("Merry Cristmas!")
+
+x = "Fábio"
+print("Feliz Natal, {0}!".format(x))
+
+from universe import world, love
+from me import my.age as a
+
+def candidates(world, a):
+    
+    women = list[x for x in world if x is (women and (women.age in range(a, a + 3))]
+    candidates = filter(lambda y: y is beautifull, women))
+    return list(candidates)
+
+def appends(how_many):
+    
+    candidates()
+    me = [] # I am a empty person :(
+    n = 0
+    while n < how_many:
+        for girl in candidates:
+            me.append(girl)
+            n = n + 1
+    
+    me_now = me.append(love)
+    
+    return me_now
+
+how_many = int(input("How many girlfriends you want? "))
+print(appends(how_many))
+
+from string import ascii_uppercase as up
+message = (list((str(input("Write something: ")).upper()).strip()))
+lista = []
+for item in message:
+    lista.append(up.find(item))
+    
+print(lista)
+
+from string import ascii_uppercase as u
+from time import strftime as y
+l = [[5,4,11,8,25],[0,13,14]]
+m = " "
+c = [m + str(u[b]) for (b in a )]
+for a in l:
+    for b in a:
+        m += str(u[b])
+    m += " "
+# print(f"{} {}!".format(m.strip(), str(y.(%Y)+1))
+print(f"{}!".format(m.strip(), str(y.(%Y)+1))
+    
+from string import ascii_uppercase as a
+from time import strftime as b
+c = [[5,4,11,8,25],[0,13,14]]
+d = ""
+for e in c:
+    for f in e:
+        d += str(a[f])
+    d += " "
+print("{} {}!".format(d.strip(), str(int(b("%Y"))+1)))
+
+def fib(n):
+    fibo = [0]
+    
+    if n ==1:
+        return fibo[-1]
+    
+    if n > 1:
+        fibo = [0, 1]
+    
+    while len(fibo) != n:
+        
+        fibo.append((fibo[-1]+fibo[-2]))
+        
+    return fibo[-1]
+
+def decode(message):
+    
+    result = ""
+        
+    abc = "1234567890qwertyuiopasdfghjklçzxcvbnmQWERTYUIOPASDFGHJKLÇZXCVBNM"
+    
+    # HELLO WORLD!
+    
+    for idx in range(0, len(message)):
+        
+        if message[idx] in abc:
+        
+            for i in range(0, len(abc)):
+            
+                if message[idx] == abc[i]:
+                    
+                    
+                    a = i+fib(idx + 1)
+                    while a >= 54+ 10:
+                        a = a - 54 -10
+                    
+                    result += abc[a]
+        
+        
+        else:
+            result += message[idx]
+
+    return result
+
+print(decode("Bipp 8k2ÇFxC6 p3 5DIp, n51Eub"))
+
+def number_to_string(num):
+    return str(num)
+
+def are_you_playing_banjo(name):
+    from string import ascii_uppercase as a
+    
+    if name[0] not in a:
+        return f"{name} does not play banjo"
+    else:
+        return f"{name} plays banjo"
+    return name
+
+def bool_to_word(boolean):
+      return "No" if str(boolean) == "False" else "Yes"
+
+def greet(name):
+    return f"Hello, {name}!" if name != "Johnny" else "Hello, my love!"
+
+sheep = [True,  True,  True,  False,
+          True,  True,  True,  True ,
+          True,  False, True,  False,
+          True,  False, False, True ,
+          True,  True,  True,  True ,
+          False, False, True,  True ]
+
+def count_sheeps(sheep):
+    n = 0
+    for item in sheep:
+        if str(item) == "True":
+            n = n + 1
+    return n
+
+print(count_sheeps(sheep))
+
+def digitize(n):
+    lista = []
+    for digit in str(n):
+        lista.append(int(digit))
+    
+    return (reverse(lista))
+    
+def reverse(lista):
+
+    lista_b = []
+    
+    for i in range(1, len(lista)+1):
+        lista_b.append(lista[-i])
+        
+    return lista_b
+
+def find_needle(haystack):
+    n = 0
+    for item in haystack:
+        if item == "needle":
+            return f"found the needle at position {n}"
+            break
+        else:
+            n = n + 1
+            
+def always(n=0):
+    return lambda: n
+
+def sum_array(a):
+    total = 0
+    for item in a:
+        total = total + item
+        
+    return total
+        
+def get_size(w,h,d):
+    lista = []
+    lista.append(2*(w*h + w*d + h*d))
+    lista.append(w*h*d)
+    return lista
+
+def rps(p1, p2):
+    atuple = (p1, p2)
+    1_won = [('scissors', 'paper'), ('paper', 'rock'), ('rock', 'scissors')]
+    2_won = [('paper', 'scissors'), ("rock", "paper"), ("scissors", "rock")]
+    
+    if atuple in 1_won:
+        return "'Player 1 won!'"
+    elif atuple in 2_won:
+        return "Player 2 won!"
+    else:
+        return "Draw!"
+
+def two_decimal_places(n):
+    return round(n, 2)
+
+def stringy(size):
+
+    answer = ""
+    base = "10"
+
+    def is(size):
+        return "odd" if size%2 == 1 else "even"
+
+    if is(size) == "odd":
+        size = size - 1
+        for i in range(0, size + 1):
+            answer = answer + base
+        return int(answer + "1")
+
+     else:
+        for i in range(0, size + 1):
+            answer = answer + base
+        return int(answer)
+
+    for word in words:
+        tf_idf[word] = tf_idf.get(word, "something_beautifull")
+
+def most_frequent_item_count(collection):
+    dicta = {}
+    for numbers in collection:
+        dicta[numbers] = dicta.get(numbers, 0)
+    
+    for number in collection:
+        if number in dicta:
+            dicta[number] = dicta[number] + 1
+    
+    return dicta
+
+def _if(bool, func1, func2):
+    
+    def truthy(): 
+        print("True")
+
+
+    def falsey(): 
+        print("False")
+
+    if str(bool) = "True":
+        return truthy()
+    else:
+        return falsey()
+
+def format_money(amount):
+    a = round(amount, 3)
+    return f"${a}"
 
 
 
