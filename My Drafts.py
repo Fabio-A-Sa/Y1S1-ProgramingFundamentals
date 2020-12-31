@@ -5599,7 +5599,239 @@ def format_money(amount):
     a = round(amount, 3)
     return f"${a}"
 
+   
+def convert_to_celsius(temperature):
+    celsius = (int(temperature) - 32) * (5/9)
+    return celsius
 
+def get_status(is_busy):
+    status = "busy" if is_busy else "available"
+    return {"status": status}
+
+def find_longest(string):
+
+    spl = string.split(" ")
+    longest = 0
+
+    for item in spl:
+        if len(item) > longest:
+            longest = len(item)
+        else:
+            continue
+    return longest
+
+def correct_tail(body, tail):
+    return True if tail == body[-1] else False
+
+def combine_names(name1, name2):
+    return "{} {}".format(name1, name2)
+
+def check_alive(health):
+    return True if health > 0 else False
+
+def get_grade(s1, s2, s3):
+    score = round(((s1 + s2 + s3)/3), 1)
+
+    if 90 <= score <= 100:
+        return "A"
+    if 80 <= score < 90:
+        return "B"
+    if 70 <= score < 80:
+        return "C"
+    if 60 <= score < 70:
+        return "D"
+    if 0 <= score < 60:
+        return "E"
+    
+def comfortable_word(word):
+
+    Left = ['q', 'w', 'e', 'r', 't', 'a', 's', 'd', 'f', 'g', 'z', 'x', 'c', 'v', 'b']
+    Right = ['y', 'u', 'i', 'o', 'p', 'h', 'j', 'k', 'l', 'n', 'm']
+    l, r = 0, 0
+
+    for letter in word:
+        if letter in Left:
+            l = l + 1
+        if letter in Right:
+            r = r + 1
+
+    a = True
+    b = False
+
+    return a if (r and l) != 0 else b
+
+def sum_array(*arr):
+    a = int(max(arr))
+    b = int(min(arr))
+    return a + b
+
+def frame(text, char):
+
+    # Which is the longest word?
+    longest = 0
+    for item in text:
+        if len(item) > longest:
+            longest = len(item)
+    n = int(longest)
+
+    # Begin and final
+    base = char*(n+4)
+
+    # Concatenate all lines
+    final = ""
+    final = final + base + "\n" 
+    for item in text:
+        if len(item) == n:
+            final = final + char + " " + item + " " + char + "\n"
+        else:
+            cont = n - len(item)
+            space = " "
+            final = final + char + space + item + (cont-1)*space + char + "\n"
+
+    final = final + base
+
+    return final
+
+def disemvowel(string):
+    vogais = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+    for letter in string:
+        i = string.find(letter)
+        if letter in vogais:
+            string = string[:i] + string[i+1:]
+    return string
+
+def solution(st, limit): 
+    if len(st) <= limit:
+        return st
+    else:
+        return "{}{}".format(st[0:limit], "...")
+
+def solve(x,y):
+    
+    from math import sqrt as s
+    def primes_until():
+        primes = []
+        for i in range(2, 150000):
+            n = 0
+            for j in range(1, round((s(i)))):
+                if i%j != 0:
+                    continue
+                else:
+                    n = n + 1
+            if n == 0:
+                primes.append(i)
+
+        return primes
+    return (primes_until())
+
+def build_row_text(index, character):
+
+    a=list('|||||||||')
+    a[index]="|"+character+"|"
+    return " ".join(a)
+
+def time_convert(num):
+    
+    # First filter
+    if num < 0:
+        return "00:00"
+        
+    # If number is natural
+    else:
+        hours = num//60
+        if hours <= 9:
+            hours = "0" + str(hours)
+        minutes = num%60
+        if minutes <= 9:
+            minutes = "0" + str(minutes)
+        clock = "{}:{}".format(str(hours), str(minutes))
+
+    return clock
+
+def next_letter(s):
+
+    from string import ascii_letters as abc
+    answer = ""
+
+    for letter in s:
+        i = abc.find(letter)
+        resto = abc[i+1] if letter in abc else letter
+        answer = answer + resto
+    return answer
+
+def multiple(x):
+    if x%3 == 0 and x%5 == 0:
+        return "BangBoom"
+    if x%3 != 0 and x%5 == 0:
+        return "Boom"
+    if x%3 == 0 and x%5 != 0:
+        return "Bang"
+    if x%3 != 0 and x%5 != 0:
+        return "Miss"
+
+# Recursion in Codewars: https://www.codewars.com/kata/latest/my-languages?tags=Recursion
+
+def life_path_number(birthdate):
+    
+    sp = birthdate.split("-")
+
+    def sum_digits(number):
+
+        if len(str(number)) == 1:
+            return number
+
+        else:
+            return number//10 + sum_digits(number%10)
+
+    lista = []
+    for item in sp:
+        item = int(item)
+        lista.append(int(sum_digits(item)))
+    
+    new_string = ""
+    for n in lista:
+        new_string = new_string + str(n)
+    new_number = int(new_string)
+
+    while len(str(new_number)) != 1:
+        new_number = sum_digits(new_number)
+
+    return new_number
+
+def reverseded_my(n):
+
+    if int(n)//10 == 0:
+        return n
+    
+    else:
+        return reverse(n[:-1]) + str(n[-1])
+
+def reverse(n, i = 0):
+    return i if n == 0 else reverse(n//10, i*10 + n%10)
+
+def solution(number):
+  
+    divisors = []
+    for i in range(2, number):
+        if i%5 == 0:
+            divisors.append(i)
+        elif i%3 == 0:
+            divisors.append(i)
+    
+    return sum(divisors) 
+
+def find_it(seq):
+
+    d = {}
+    
+    for item in seq:
+        if item not in d:
+            d[item] = d.get(item, 0)
+    
+    for item in d:
+        d[item] = d[item] + 1
+    
+    return d
 
 
 
