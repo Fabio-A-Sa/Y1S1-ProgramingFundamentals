@@ -4051,14 +4051,6 @@ def academy_awards(alist):
 
     return result
 
-
-alist = [('Best Picture', 'Moonlight'), ('Best Director', 'La La Land'), ('Best Actor', 'Manchester by the Sea'), ('Best Actress', 'La La Land'), ('Best Supporting Actor', 'Moonlight'), ('Best Supporting Actress', 'Fences'), ('Best Original Screenplay', 'Manchester by the Sea'), ('Best Original Score', 'La La Land')]
-print(academy_awards(alist))
-
-
-
-2
-
 def lost_element(s1, s2):
     n = s1.difference(s2) if len(s1) > len(s2) else s2.difference(s1)
     return n.pop()
@@ -4068,8 +4060,6 @@ s1 = {1, 4, 5, 7, 9}
 s2 = {4, 5, 7, 9}
 
 print(lost_element(s1, s2))
-
-3
 
 def most_frequent(alist):
     
