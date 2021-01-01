@@ -6042,6 +6042,87 @@ def rpsp(p1, p2):
         return "Player 2 won!"
     else:
         return "Draw!"
+def moste_frequent_item_count(collection):
+
+    # Build a dictionary
+    dicta = {}
+    for numbers in collection:
+        dicta[numbers] = dicta.get(numbers, 0)
+    
+    # How many times a number appears in collection?
+    for number in collection:
+        if number in dicta:
+            dicta[number] = dicta[number] + 1
+    
+    # Find a number that apears more times in collection
+    many = 0
+    for key in dicta:
+        if dicta[key] > many:
+            many = dicta[key]
+        else:
+            continue
+    
+    return many
+
+def stringly(size):
+
+    answer = ""
+    base = "10"
+
+    # Size is odd or even?
+    def is_oe(size):
+        return "odd" if size%2 == 1 else "even"
+
+    # Type 101
+    if is_oe(size) == "odd":
+        size = (size - 1)//2
+        for _ in range(0, size):
+            answer = answer + base
+        return answer + "1"
+
+    # Type 1010
+    else:
+        size = size//2
+        for _ in range(0, size):
+            answer = answer + base
+        return answer
+    
+def _if(bool, func1, func2):
+
+    if str(bool) == "True":
+        return func1()
+    elif str(bool) == "False":
+        return func2()
+
+def format_money(amount):
+
+    l = str(amount).split(".")
+
+    if len(l) == 2:
+        if len(l[1]) == 2:
+            return f"${amount}"
+        elif len(l[1]) == 1:
+            return f"${amount}0"
+    else:
+        return f"${amount}.00"
+
+def isDigit(string):
+    
+    test = "0123456789.+-  */,()         "
+    
+    n = 0 # Counter of issues
+    for digit in string:
+        if digit not in test:
+            n = n + 1
+        else:
+            continue
+    
+    # Other clever solution
+    try:
+        float(string)
+        return True
+    except ValueError:
+        return False
 
 
 
