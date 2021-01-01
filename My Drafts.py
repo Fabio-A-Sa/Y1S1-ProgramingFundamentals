@@ -5833,5 +5833,215 @@ def find_it(seq):
     
     return d
 
+def reverse_2(n, i = 0):
+    return i if n == 0 else reverse_2(n//10, i*10 + n%10)
+
+def solution_2(number):
+  
+    divisors = []
+    for i in range(2, number):
+        if i%5 == 0:
+            divisors.append(i)
+        elif i%3 == 0:
+            divisors.append(i)
+    
+    return sum(divisors) 
+
+def find_it(seq):
+
+    d = {}
+    
+    # Dictionary
+    for item in seq:
+        if item not in d:
+            d[item] = d.get(item, 0)
+    
+    # Counting characters
+    for item in seq:
+        d[item] = d[item] + 1
+    
+    # Find odd occurrence
+    solution = 0
+    for key in d:
+        if (d[key])%2 == 1:
+            solution = key
+            break
+    return solution
+
+def get_suma(a,b):
+    soma = 0
+    m = max(a, b)
+    m2 = min(a, b)
+    for i in range(m2, m+1):
+        soma = soma + i
+    return soma
+
+def is_triangle(a, b, c):
+    big = max(a, b, c)
+    return ( big < ( a + b + c - big ))
+
+def to_camel_case(text):
+
+    # Replace strings to splaces and build a list with all words
+    text = text.replace("-", " ").replace("_" " ").split(" ")
+    for item in text[1:]:
+        item = item.capitalize()
+    
+    # Concatenate all words in text list
+    final = ""
+    for item in text:
+        final = final + str(item)
+
+    return final
+
+def sortede(word):
+    return "".join(sorted(word))
+
+def count_sheepset(sheep):
+    n = 0
+    for item in sheep:
+        if str(item) == "True":
+            n = n + 1
+    return n
+
+def Aare_you_playing_banjo(name):
+    
+    if name[0] == "r" or name[0] == "R":
+        return f"{name} plays banjo"
+    else:
+        return f"{name} does not play banjo"
+
+def great(name):
+    return f"Hello, {name}!" if name != "Johnny" else "Hello, my love!" 
+
+def song_decoder(song):
+
+    l = song.split("WUB")
+
+    answer = ""
+    for item in l:
+        if item != (""):
+            answer = answer + item + " "    
+        
+    return answer.strip()
+
+def duplicate_count(text):
+
+    # Create a dictionary with all single letters
+    d = {}
+    text = text.lower()
+    for letter in text:
+        if letter not in d:
+            d[letter] = d.get(letter, 0)
+
+    # How many occurence in each letter?        
+    for letter in text:
+        if letter in d:
+            d[letter] = d[letter] + 1
+
+    # Select letter that occurs more than one time
+    answer = 0
+    for key in d:
+        if d[key] > 1:
+            answer = answer + 1
+        else:
+            continue
+
+    return answer
+
+def anagrams(word, words):
+    
+    answer = []
+    s_word = "".join(sorted(word))
+    for w in words:
+        if s_word == "".join(sorted(w)):
+            answer.append(w)
+        else:
+            continue
+
+    return answer 
+
+def ints_triangle(a, b, c):
+    big = max(a, b, c)
+    return ( big < (a+b+c-big))
+
+def gets_sum(a,b):
+    soma = 0
+    m = max(a, b)
+    m2 = min(a, b)
+    for i in range(m2, m+1):
+        soma = soma + i
+    return soma
+
+def find_itse(seq):
+
+    d = {}
+    
+    # Dictionary
+    for item in seq:
+        if item not in d:
+            d[item] = d.get(item, 0)
+    
+    # Counting characters
+    for item in seq:
+        d[item] = d[item] + 1
+    
+    # Find odd occurency
+    solution = 0
+    for key in d:
+        if (d[key])%2 == 1:
+            solution = key
+            break
+    return solution
+
+def happy_2021(something):
+        
+    from string import ascii_uppercase as a
+    from time import strftime as b
+    c = [[5,4,11,8,25],[0,13,14]]
+    d = ""
+    for e in c:
+        for f in e:
+            d += str(a[f])
+        d += " "
+    print("{} {}!".format(d.strip(), str(int(b("%Y"))+1)))
+    return None
+
+def count_bits(n):
+
+    # Converter decimal number to binary number
+    def decimal_to_binary(n):
+
+        binary = 0
+        aux = n
+        index = 0
+        while aux:
+            binary = aux % 2 * 10 ** index + binary
+            aux = aux//2
+            index = index + 1
+
+        return binary
+
+    # How many 1's are in binary number?
+    binary = str(decimal_to_binary(n))
+    counter = 0
+    for number in binary:
+        if number == "1":
+            counter = counter + 1
+
+    return counter
+
+def rpsp(p1, p2):
+    atuple = (p1, p2)
+    won1 = [('scissors', 'paper'), ('paper', 'rock'), ("rock", "scissors")]
+    won2 = [('paper', 'scissors'), ("rock", "paper"), ("scissors", "rock")]
+    
+    if atuple in won1:
+        return "Player 1 won!"
+    elif atuple in won2:
+        return "Player 2 won!"
+    else:
+        return "Draw!"
+
 
 
