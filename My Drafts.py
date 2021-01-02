@@ -6177,4 +6177,114 @@ def order_weight(strng):
 
     return answer.strip()
 
+def ajustes(result):
+    
+    result = result[1::] # retira a primeira vírgula
+    new_list = result.split(",") # lista com itens do tipo "n->m" ou "n->n"
+    final = ""
+    
+    for x in range (0, len(new_list)):
+        
+        y = round((len(new_list[x])-2)/2) # número de dígitos de n
+        
+        if new_list[x][:y] == new_list[x][-y:]: #significa que n->n
+            new_list[x] = new_list[x][0:y] #substitui por n
+            
+        else:
+            continue
+        
+    for z in range(0, len(new_list)):  
+        final = final + "," + new_list[z]
+        
+    return final[1::] # retira a primeira vírgula
 
+            
+def solution(args):
+
+    vazio = []
+    
+    if args == []:
+        return vazio
+    
+    if len(args) == 1:
+        return args
+    
+    result = ""
+    a_list = args
+    i = 0 # initial index value
+    j = 0 # initial complement value
+    
+    while (i < len(a_list)+1) or ((i+j+1) < len(a_list)):
+    
+        while ((int(a_list[i+j]) - int(a_list[i])) == j):
+            if (i+j) == (len(a_list)-1):
+                result = result + "," + str(a_list[i]) + "-" + str(a_list[i+j])
+                
+                return ajustes(result) # chama a outra função que irá retirar a 
+                                       # primeira vírgula e substituir casos 
+                                       # do tipo "n->n" por "n"
+            else:
+                j = j + 1
+        
+        else:
+            result = result + "," + str(a_list[i]) + "-" + str(a_list[i+(j-1)])
+            i = i + j
+            j = 0 # cancel complement
+    
+    return result 
+
+def format_duration(seconds):
+    
+    years = seconds//(365*24*60*60)
+    days = (seconds - years*(365*24*60*60))//(24*60*60)
+    hours = (seconds - years*(365*24*60*60) - days*(34*60*60))//(60*60)
+    minutes = (seconds - years*(365*24*60*60) - days*(34*60*60) - hours*(60*60))//60
+    secondss = seconds - years*(365*24*60*60) - days*(34*60*60) - hours*(60*60) - minutes*60
+    
+    if years != 0:
+        return f"{years} year, {days} day, {hours} hour, {minutes} minutes and {seconds} seconds"
+    if days != 0:
+        return f"{days} day, {hours} hour, {minutes} minutes and {seconds} seconds"
+    if hours != 0:
+        return f"{hours} hour, {minutes} minutes and {seconds} seconds"
+    if minutes != 0:
+        return f"{minutes} minutes and {seconds} seconds"
+    if secondss != 0:
+        return f"{secondss} seconds"
+    
+def zeros(n):
+
+    # Recursive factorial
+    def factorial(n):
+
+        if n == 1:
+            return n
+        else:
+            return n * factorial(n-1)
+
+    # How many zeros in factorial?
+    if n == 0:
+        return 0
+    else:
+        result = factorial(n)
+        counter = 0
+        for digit in str(result):
+            if digit == "0":
+                counter = counter + 1 
+            else:
+                continue
+
+        return counter
+
+def deep_count(a):
+
+    counter = 0
+    for i in a:
+        if type(i) is list:
+            counter = counter + depp_count(i)
+        else:
+            counter = counter + 1
+
+    return counter
+     
+   
