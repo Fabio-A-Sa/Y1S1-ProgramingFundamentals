@@ -6114,5 +6114,67 @@ def isDigit(string):
     except ValueError:
         return False
 
+      def sum_of_intervals(intervals):
+
+    all_numbers = []
+    for item in range(len(intervals)):
+        if intervals[item] != intervals[item-1]:
+            for number in range(item):
+                all_numbers.append(number)
+        else:
+            continue
+    
+    total = len(all_numbers)
+    return total
+
+def increment_string(strng):
+
+    values = "0123456789"
+
+    if strng[-1] in values:
+        return strng[:-1] + str(int(strng[-1]) + 1)
+    else:
+        return strng + str(1)
+
+def order_weight(strng):
+
+    # Recursive function that return sum of all digits
+    def sum_digits(number):
+        if len(str(number)) == 1:
+            return number
+        else:
+            return number%10 + sum_digits(number//10)
+
+    # Key sorted
+    def st(list)
+        return list[0]
+
+    # Buil sum of all numbers
+    all_numbers = strng.split(" ")
+    sum_numbers = []
+    for item in all_numbers:
+        sum_numbers.append(int(sum_digits(int(item))))
+
+    # Sorted lists
+    new = []
+    for x, index1 in sum_numbers:
+        for y, index2 in all_numbers:
+            if index1 == index2:
+                new.append(tuple(x, y))
+    
+    new = new.sort(key=st)
+    
+    # Final list
+    final = []
+    for thing in new:
+        (x, y) = thing
+        final.append(y)
+
+    # Transform answer in a string
+    answer = ""
+    for item in final:
+        answer = answer + str(item) + " "
+
+    return answer.strip()
 
 
