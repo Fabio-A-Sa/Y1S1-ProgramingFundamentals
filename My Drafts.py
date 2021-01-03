@@ -6287,4 +6287,63 @@ def deep_count(a):
 
     return counter
      
-   
+   def search_linear(xs, target):
+    """ Don't do this!  """
+    """ Find and return the index of target in sequence xs """
+    for v in xs:
+        if v == target:
+            return xs.index(v)
+    return -1
+
+def search_linear(xs, target):
+    """ Find and return the index of target in sequence xs """
+    i = 0
+    while i < len(xs):
+        if xs[i] == target:
+            return i
+        else:
+            i += 1
+    return -1
+
+
+def search_linear(xs, target):
+    """ Find and return the index of target in sequence xs """
+    i = -1
+    for v in xs:
+        i += 1
+        if v == target:
+            return i
+    return -1
+
+
+def search_linear(xs, target):
+    """ Find and return the index of target in sequence xs """
+    for (i, v) in enumerate(xs):
+        if v == target:
+            return i
+    return -1
+
+
+def remove_adjacent_dups(xs):
+
+    ls = ["Joe", "Zoe", "Joe", "Angelina", "Zuki", "Thandi", "Zuki"]
+    result = []
+    most_recent_elem = None
+    for e in ls:
+        if e != most_recent_elem:
+            result.append(e)
+            most_recent_elem = e
+
+    return result
+
+def remove_adjacent_dups_2(xs):
+
+    ls = ["Joe", "Zoe", "Joe", "Angelina", "Zuki", "Thandi", "Zuki"]
+    result = []
+    for element in ls:
+        if element not in result:
+            result.append(element)
+            
+    return sorted(result, key=None)
+
+
