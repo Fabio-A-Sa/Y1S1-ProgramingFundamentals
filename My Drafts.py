@@ -6411,4 +6411,60 @@ def odd_range(start, stop, step):
     # Generator
     for item in odd_numbers:
         yield item
+      
+def to_celsius(t):
+    temperatures = [round(((c-32)/1.8), 2) for c in t]
+    return list(temperatures)
+
+def to_fahrenheit(t):
+    temperatures = [round(((f*1.8)+32), 2) for f in t]
+    return list(temperatures)
+
+def get_composites(n):
+
+    all_numbers = [x for x in range(4, n+1)]
+    primes_until_n = [y for y in all_numbers if all( y % z != 0 for z in range(2, y))]
+    composites_filter = lambda c: c not in primes_until_n
+
+    result = filter(composites_filter, all_numbers)
+
+    # Genetator
+    for number in list(result):
+        yield number
+
+def evaluate(a, x):
+
+    expoentes = [e for e in range(len(a))]
+    fatores = [n*(x**e) for n,e in zip(a,expoentes)]
+
+    return sum(fatores)
+
+def rearrange(l):
+    negative_numbers = list((x for x in l if x <= 0))
+    positive_numbers = list((x for x in l if x > 0))
+
+    return negative_numbers + positive_numbers
+
+def batch_norm(alist, batch_size):
+
+    while len(alist) != 0:
+
+        lote = alist[:batch_size]    
+        alist = alist[batch_size:]
+        n = sorted(lote.copy())
+
+        if len(lote)%2 == 1:
+
+            mediana = n[len(lote)//2]
+
+            yield list([number - mediana for number in lote])
+
+        else:
+            
+            a = n[(len(lote)//2)-1]
+            b = n[len(lote)//2]
+            mediana = (a+b)/2
+
+            yield list([number - mediana for number in lote])
+
 
