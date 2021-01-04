@@ -1,3 +1,6 @@
+# Created on January, 2021
+# @author: Fábio Araújo de Sá
+
 def square_odds(values):
 
     all_numbers = [int(x) for x in values.split(",")]
