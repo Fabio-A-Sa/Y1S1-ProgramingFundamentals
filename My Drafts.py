@@ -6304,8 +6304,7 @@ def search_linear(xs, target):
         else:
             i += 1
     return -1
-
-
+      
 def search_linear(xs, target):
     """ Find and return the index of target in sequence xs """
     i = -1
@@ -6346,4 +6345,70 @@ def remove_adjacent_dups_2(xs):
             
     return sorted(result, key=None)
 
+      def square_odds(values):
+
+    all_numbers = [int(x) for x in values.split(",")]
+    all_squares = [str(x**2) for x in all_numbers if x%2==1]
+    result = ",".join(all_squares)
+    return result
+
+def comprehensions(i, j):
+
+    # To get all numbers, including j
+    j = j + 1
+    from math import sqrt as r
+
+    first_part = [x for x in range(i, j) if (((str(x))[-1] == "8") or ((str(x))[-1] == "3"))]
+    second_part = [round((r(x)),2) for x in range(i, j)]
+    third_part = {x: chr(x) for x in range(i, j)}
+
+    return tuple((list(first_part), tuple(second_part), dict(third_part)))
+
+def brute_force(f, l):
+
+    # For the resolution of the exercise I consulted how to make combinations using comprehensions. 
+    # I found this site that helped me with the task:
+    # https://stackoverflow.com/questions/464864/how-to-get-all-possible-combinations-of-a-list-s-elements
+    
+    from itertools import product as p
+
+    n = len(l)
+    all_combinations = list(p(l, repeat = 3))
+
+    # Combinations whose length is equal to 3 using filter
+    function = lambda j: len(j) == 3
+    allowed_combinations = list(filter(function, all_combinations))
+
+    # Join letters for string to login
+    concatenated = ["".join(letters) for letters in allowed_combinations]
+
+    # Which combinations are possible for login?
+    possibilities = list([x for x in concatenated if f(x) == True])
+    return possibilities
+
+#f = lambda x: abs(int(x)) == 1 if x.isdigit() else False
+#l = ['-', '0', '1', '2']
+#print(brute_force(f, l))
+
+def multiples_of7(n):
+
+    # All multiples of 7 in nterval [0, n[ (n not include)
+    all_possibilities = [x for x in range(0, n) if x%7 == 0]
+
+    # Generator
+    for item in all_possibilities:
+        yield item
+
+def odd_range(start, stop, step):
+
+    # All odd numbers between start and stop
+    numbers = [x for x in range(start, stop) if x%2 == 1]
+
+    # Step increment with index
+    total = len(numbers)
+    odd_numbers = [numbers[index] for index in range(0, total, step)]
+
+    # Generator
+    for item in odd_numbers:
+        yield item
 
