@@ -57,7 +57,6 @@ b = int(input())
 c = (2-(a-b)%2)*(a+b)
 # se for par, caso contrário anula:
 d = ((a-b)%2)*(a*b)
-print(c+d)
 
 h = int(input())
 m = int(input())
