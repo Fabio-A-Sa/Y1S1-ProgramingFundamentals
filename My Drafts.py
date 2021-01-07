@@ -6724,3 +6724,106 @@ def min_path2(matrix, a, b, visited=[]):
         ]
     # min_path(mx, (2, 0), (0, 3))
 
+      def sinhe(item):
+    return item[1]
+
+def reorder(l):
+
+    l = sorted(l, key=sinhe)
+
+    solution = ""
+    for item in l:
+        solution = solution + item[0]
+    
+    return solution
+
+    # l = [('g', 3), ('d', 1), ('o', 2)]
+    # print(reorder(l))
+
+def process(commands):
+
+    s = commands[0]
+
+    for op, t in zip(commands[1::2], commands[2::2]):
+
+        if op == '|': 
+            s = s | t
+
+        if op == '&': 
+            s = s & t
+
+        if op == '-': 
+            s = s - t
+
+        if op == 'x': 
+            # Cartesian product
+            r = set()
+            for i in s:
+                for j in t:
+                    r.add((i, j))
+                s = r
+    return s
+
+def count_digits(n):
+
+    if len(str(n)) == 1:
+        return {}
+    d = count_digits(n//10)
+    d[n%10] = d.get(n%10, 0) + 1
+
+    return d
+        
+    # n = 27287
+    # print(count_digits(n))
+
+def fsm(transitions, input):
+
+    current_state = 0
+    for c in input:
+
+        if c not in transitions[current_state]:
+            return -1
+
+        current_state = transitions[current_state][c]
+
+    return current_state
+
+    # transitions = [
+    #                 {'a': 1}, # state 0
+    #                 {'b': 2}, # state 1
+    #                 {'a': 1, 'b': 2} # state 2
+    #             ]               
+
+    # input = "a"
+    # print(fsm(transitions, input))
+
+def simplify(expr):
+
+    if type(expr) != tuple:
+        return expr
+
+    if expr[0] == '¬':
+
+        e = expr[1]
+
+        if type(e) == tuple:
+
+            if e[0] == '¬':
+                return simplify(e[1])
+
+            if e[0] == '∧':
+                e1 = simplify(('¬', e[1]))
+                e2 = simplify(('¬', e[2]))
+                return ('∨', e1, e2)
+
+            if e[0] == '∨':
+                e1 = simplify(('¬', e[1]))
+                e2 = simplify(('¬', e[2]))
+                return ('∧', e1, e2)
+
+        return expr
+
+    return (expr[0], simplify(expr[1]), simplify(expr[2]))
+
+    # expr = ('¬', ('∧', 'a', ('¬', 'b')))
+    # print(simplify(expr))
