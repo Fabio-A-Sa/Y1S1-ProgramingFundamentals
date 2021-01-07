@@ -6598,3 +6598,129 @@ def knapsack(money, products, wishlist):
 
     return final
 
+      def treasure(clues):
+
+    pos = (0, 0)
+    while pos in clues:
+        old_pos = pos
+        pos = clues[pos]
+        del clues[old_pos]
+
+    return pos
+
+    # clues = ({(0,0): (1,0), (1,0): (2,0), (2,0): (3,0)})
+    # print(treasure(clues))
+
+def evaluate(a, x):
+
+    coeficientes = list([x**i for i in range(len(a))])
+    polinómio = [n*x for x, n in zip(coeficientes, a)]
+
+    return sum(list(polinómio))
+
+    # a = [1, 2, 4]
+    # x = 5
+    # print(evaluate(a, x))
+
+def recursive_dot(l1, l2):
+
+    total = 0
+
+    for item1, idx1 in enumerate(l1):
+        for item2, idx2 in enumerate(l2):
+            if (type(item1) == int) and (type(item2) == int) and (idx1 == idx2):
+                total = total + item1*item2
+            else:
+                if idx1 == idx2:
+                    total = total + recursive_dot(item1, item2)
+
+    return total
+
+def recursive_dot2(l1, l2):
+
+    if type(l1) == int:
+        return l1*l2
+
+    if len(l1) == 0:
+        return 0
+
+    return recursive_dot2(l1[0], l2[0]) + recursive_dot2(l1[1:], l2[1:])
+
+    # l1 = [1, [2, 3]]
+    # l2 = [4, [5, 6]]
+    # print(recursive_dot2(l1, l2))
+
+def reclist(alist):
+
+    new_list = []
+
+    for item in alist:
+        if type(item) != list:
+            new_list.append(item)
+        else:
+            new_list = new_list + reclist(item)
+
+    return new_list
+
+def interleave(alist1, alist2):
+
+    final = []
+    alist1 = reclist(alist1)
+    alist2 = reclist(alist2)
+
+    for item1 in alist1:
+        for item2 in alist2:
+            idx1 = alist1.index(item1)
+            idx2 = alist2.index(item2)
+            if idx1 == idx2:
+                final.append(item1)
+                final.append(item2)
+            else:
+                continue
+
+    return final
+
+    # alist1 = [1, [4,2]]
+    # alist2 = [3, [7,4]]
+    # print(interleave(alist1, alist2))  
+
+def min_path2(matrix, a, b, visited=[]):
+
+    IMPOSSIBLE = 99999 # Max value
+
+    if a == b: # final position
+        return 0
+
+    if a[0] < 0 or a[0] >= len(matrix): # outside matrix lines
+        return IMPOSSIBLE
+
+    if a[1] < 0 or a[1] >= len(matrix[0]): # outside matrix columns
+        return IMPOSSIBLE
+
+    if matrix[a[0]][a[1]]: # an obstacle
+        return IMPOSSIBLE
+
+    if a in visited: # already visited
+        return IMPOSSIBLE
+
+    # find a min path
+    mindist = IMPOSSIBLE
+    possible = [(0,1), (1,0), (1,1), (-1,-1), (-1,0), (-1,1), (0,-1), (1,-1)]
+
+    for p in possible:
+        l, c = a[0]+p[0], a[1]+p[1]
+        # try the direction
+        d = 1 + min_path2(matrix, (l, c), b, visited+[a])
+        # see if it's the best so far
+        if d < mindist:
+            mindist = d
+    return mindist
+
+    # mx = [
+        # [False]*4,
+        # [False, True, False, False],
+        # [False, True, False, False],
+        # [False]*4
+        ]
+    # min_path(mx, (2, 0), (0, 3))
+
