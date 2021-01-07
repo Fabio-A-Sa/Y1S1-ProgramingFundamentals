@@ -6466,4 +6466,135 @@ def batch_norm(alist, batch_size):
 
             yield list([number - mediana for number in lote])
 
+def average(a, b):
+    from math import ceil as c
+    return c((a + b) / 2)
+
+def digits_average(n):
+    if n >= 10:
+        avg = 0
+        power = 0
+        if n >= 10:
+            avg = avg + average(n % 10, (n//10) % 10) * 10**power
+            n //= 10
+            power += 1
+        n = avg list
+    return n
+
+def average(a, b):
+
+    from math import ceil as c
+    result = c((a+b)/2)
+    return result
+
+def next_number(n):
+
+    if n < 100: # Only 2 digits
+        return average((n%10), ((n//10)%10))
+    else: # More than 2 digits
+        return average(n % 10, (n//10) % 10) + next_number(n//10) * 10
+        
+def digits_average(n):
+
+    if n < 9: # Only one digit
+        return n
+    else: # Two or more
+        return digits_average(next_number(n))
+
+def poss(n, boards):
+
+    # All possibilities to paint all boards
+    qtd = len(boards) + 2 - n
+    all_possibilities = []
+    for x in range(1, qtd):
+        possibility = paint(n-1, boards[x:]) + max(boards[:x])
+        all_possibilities.append(possibility)
+    
+    return all_possibilities
+
+def paint(n, boards):
+
+    if n == 1:
+        return max(boards)
+    else:
+        return min(poss(n, boards))
+
+def permuta(alist, step=0):
+
+    all_permutations = []
+
+    if len(alist) == 1:
+        # Base case
+        return list([alist])
+    
+    if len(alist) == 2:
+        return [alist, [alist[1], alist[0]]]
+
+    if len(alist) == step:
+        all_permutations.append(alist)
+
+    if len(alist) > 2:
+        a = step
+        b = len(alist)
+        for item in range(a, b):
+            cop = alist.copy()
+            cop[item] = alist[a]
+            cop[a] = alist[item]
+            all_permutations += permuta(cop, 1+a)
+        
+        return all_permutations
+
+def não_falido(money, products, wishlist):
+
+    gasto = 0
+    for item in wishlist:
+        quantidade = wishlist.get(item)
+        preço = products.get(item)
+        gasto = gasto + preço*quantidade
+
+    return True if (gasto < money or money == gasto) else False
+
+def knapsack(money, products, wishlist):
+
+    all_possibilities = []
+
+    if não_falido(money, products, wishlist):
+        # Found the best solution
+        return wishlist
+    
+    # Rearranging
+    for item in wishlist:
+        solution = wishlist.copy()
+        if wishlist.get(item) != 0:
+            if products.get(item) > money:
+                # Can't buy them
+                solution[item] = 0
+            else:
+                # Can't buy them all
+                solution[item] = solution[item] - 1
+            
+            all_possibilities.append(solution)
+
+    for possibility in all_possibilities:
+        if não_falido(money, products, possibility):
+            continue
+        else:
+            # Error
+            for item in possibility:
+                nova = knapsack(money, products, item)
+                all_possibilities.append(nova)
+    
+    all_prices = []
+    for possibility in all_possibilities:
+        quantidade = wishlist.get(possibility)
+        preço = products.get(possibility)
+        gasto = gasto + preço*quantidade
+        all_prices.append(gasto)
+
+    final = {}
+    for item, qtd in enumerate(all_possibilities.index(max(all_prices)).itens()):
+        if qtd != 0:
+            final = final + {item:qtd}
+
+    return final
 
