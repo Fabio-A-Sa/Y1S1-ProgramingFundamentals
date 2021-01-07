@@ -1,19 +1,22 @@
 # Created on December, 2020
 # @author: Fábio Araújo de Sá
 
-# Não funciona ainda
-
 def average(a, b):
-    from math import ceil as c
-    return c((a + b) / 2)
 
+    from math import ceil as c
+    result = c((a+b)/2)
+    return result
+
+def next_number(n):
+
+    if n < 100: # Only 2 digits
+        return average((n%10), ((n//10)%10))
+    else: # More than 2 digits
+        return average(n % 10, (n//10) % 10) + next_number(n//10) * 10
+        
 def digits_average(n):
-    if n >= 10:
-        avg = 0
-        power = 0
-        if n >= 10:
-            avg = avg + average(n % 10, (n//10) % 10) * 10**power
-            n //= 10
-            power += 1
-        n = avg list
-    return n
+
+    if n < 9: # Only one digit
+        return n
+    else: # Two or more
+        return digits_average(next_number(n))
