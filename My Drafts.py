@@ -6827,3 +6827,105 @@ def simplify(expr):
 
     # expr = ('¬', ('∧', 'a', ('¬', 'b')))
     # print(simplify(expr))
+      
+def reclist(alist):
+
+    new_list = []
+
+    for item in alist:
+        if type(item) != list:
+            new_list.append(item)
+        else:
+            new_list = new_list + reclist(item)
+
+    return new_list
+
+def recursive_dot(l1, l2):
+
+    l1 = reclist(l1)
+    l2 = reclist(l2)
+
+    total = 0
+    for n1 in l1:
+        for n2 in l2:
+            one = l1.index(n1)
+            two = l2.index(n2)
+            if one == two:
+
+                total = total + n1*n2
+
+    return total
+
+    # a = [1, [2, 3]]
+    # b = [4, [5, 6]]
+    # print(recursive_dot(a, b))
+    # c = [[5, 3, 1], [2, 4]]
+    # d = [[4, 2, 0], [1, 3]]
+    # print(recursive_dot(c, d)) 
+
+def rec(n, m):
+
+    if n > m:
+        atuple = (m, n)
+    else:
+        atuple = (n, m)
+
+    return atuple
+
+def cube_sum(n, m):
+    
+    alist = list([x for x in range(n+1, m+1)])
+    blist = list([x for x in range(m+1, n+1)])
+
+    cube_a = list([x**3 for x in alist]) 
+    cube_b = list([x**3 for x in blist])
+
+    return sum(cube_a) if alist != [] else sum(cube_b)
+
+    # print(cube_sum(4, 0))
+    # print(cube_sum(5, 10))
+
+
+def position(alphabet):
+    
+    from string import ascii_lowercase as abc
+
+    n = abc.find(alphabet) + 1
+    return f"Position of alphabet: {n}"
+
+
+def four_seasons(d):
+
+    season = ""
+    if d in range(90, 180):
+        season = "Summer"
+    elif d in range(180, 270):
+        season = "Winter"
+    elif d in range(270, 360):
+        season = "Spring"
+    else:
+        season = "Autumn"
+
+    return f"{season} Season"
+
+def descompactar(alist):
+
+    total = []
+    for item in alist:
+
+        if type(item) != list:
+            total.append(item)
+        
+        else:
+            total = total + descompactar(item)
+
+    return total
+
+def sum_nested(lst):
+    a = descompactar(lst)
+    b = sum(a)
+
+    return b
+
+    # alist = [1, [2, 3, []]]
+    # print(sum_nested(alist))
