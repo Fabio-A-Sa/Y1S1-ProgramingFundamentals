@@ -6929,3 +6929,120 @@ def sum_nested(lst):
 
     # alist = [1, [2, 3, []]]
     # print(sum_nested(alist))
+      
+def reverse(n, i = 0):
+    return i if n == 0 else reverse(n//10, i*10 + n%10)
+
+def plus(number):
+    alist = [int(n) for n in str(number)]
+    return list(alist)
+
+def aux(matrix, word, row, col):
+    if word == '':
+        return True
+    if row < 0 or row >= len(matrix) or col < 0 or col >= len(matrix[0]):
+        return False
+    if matrix[row][col] == word[0]:
+        if aux(matrix, word[1:], row, col+1):
+            return True
+        elif aux(matrix, word[1:], row, col-1):
+            return True
+        elif aux(matrix, word[1:], row+1, col):
+            return True
+        elif aux(matrix, word[1:], row-1, col):
+            return True
+        elif aux(matrix, word[1:], row+1, col+1):
+            return True
+        elif aux(matrix, word[1:], row-1, col+1):
+            return True
+        elif aux(matrix, word[1:], row+1, col-1):
+            return True
+        elif aux(matrix, word[1:], row-1, col-1):
+            return True
+    return False
+
+def soup(matrix, word):
+    for row in range(len(matrix)):
+        for col in range(len(matrix[0])):
+            if aux(matrix, word, row, col):
+                return chr(row + 65) + str(col + 1)
+
+def per(atuple):
+
+    alist = list([tuple((x, y, z)) for x in atuple for y in atuple for z in atuple if x != z and z != y and y != z])
+    return alist
+
+def s(something):
+    a = set()
+    a.add(7)
+    a.add(8)
+    a.add(9)
+    a.add(8)
+    a.remove(9)
+    return a
+
+def swap_case(astr):
+    return astr.swapcase()
+
+def unique_values(alist):
+    
+    aset = set()
+    
+    for dictionary in alist:
+        for key in dictionary:
+            if dictionary[key] not in aset:
+                aset.add(dictionary[key])
+                
+    return aset
+
+def rec(alist):
+    
+    blist = []
+    for item in alist:
+        if type(item) != list:
+            blist.append(item)
+            
+        else:
+            blist = blist + rec(item)
+            
+    return blist
+
+def rec_count(alist):
+    
+    blist = rec(alist)
+    
+    adict = {}
+    for item in blist:
+        adict[item] = adict.get(item, 0) + 1
+        
+    return adict
+
+def maximo_divisor(n1, n2):
+    
+    import math
+    return math.gcd(n1, n2)
+
+def calculator(expr):
+    
+    if len(expr) == 2:
+        return expr
+    
+    else:
+        
+        operator = expr[1]
+        
+        if operator == "*":
+            a = calculator(expr[0])
+            b = calculator(expr[2])
+            c = maximo_divisor(a[0]*b[0], a[1]*b[1])
+            d = (((a[0]*b[0])//c), ((a[1]*b[1])//c))
+            return d
+        
+        if operator == "/":
+            a = calculator(expr[0])
+            b = calculator(expr[2])
+            c = maximo_divisor(a[0]*b[1], a[1]*b[0])
+            d = (((a[0]*b[1])//c), ((a[1]*b[0])//c))
+            return d
+
+
