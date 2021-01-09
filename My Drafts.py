@@ -7045,4 +7045,80 @@ def calculator(expr):
             d = (((a[0]*b[1])//c), ((a[1]*b[0])//c))
             return d
 
+def brute_force(f, l):
 
+    # All combinations whose lenght is 3
+    all_combinations = list([(x, y, z) for x in l for y in l for z in l])
+    concatenated = list(["".join(possibility) for possibility in all_combinations])
+
+    # Filter with the function f
+    result = list([possibility for possibility in concatenated if f(possibility) == True])
+
+    return result
+
+    # l = ['-', '0', '1', '2']
+    # f = lambda x: abs(int(x)) == 1 if x.isdigit() else False
+    # print(brute_force(f, l))
+
+def odd_range(start, stop, step):
+
+    # First odd number in range (start, stop)
+    number = 0
+    for i in range(start, stop):
+        if i%2 == 1: # Odd number
+            number = i
+            break
+    
+    # Steps until stop
+    step = 2 * step
+    result = []
+    for n in range(number, stop, step):
+        result.append(n)
+    
+    # Generator
+    for item in result:
+        yield item
+
+    # start = 0
+    # stop = 20
+    # step = 2
+    # print(odd_range(start, stop, step))
+
+def multiples_of7(n):
+
+    if n < 0:
+        return None
+
+    if n == 0:
+        return n
+
+    else:
+        # All multiples of 7 in nterval [0, n[ (n not include)
+        all_possibilities = [x for x in range(0, n) if x%7 == 0]
+
+        # Generator
+        for item in all_possibilities:
+            yield item
+
+    # n = 0
+    # print(multiples_of7(n))
+
+def square_odds(values):
+
+    if values == ("" or ","):
+        return ""
+
+    if type(values) != str:
+        return ""
+
+    if values == "0":
+        return ""
+
+    else:
+
+        all_numbers = [int(x) for x in values.split(",")]
+        all_squares = [str(x**2) for x in all_numbers if x%2==1]
+        result = ",".join(all_squares)
+        return result
+
+    # print(square_odds("0"))
