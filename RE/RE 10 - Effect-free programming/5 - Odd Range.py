@@ -3,13 +3,19 @@
 
 def odd_range(start, stop, step):
 
-    # All odd numbers between start and stop
-    numbers = [x for x in range(start, stop) if x%2 == 1]
-
-    # Step increment
-    total = len(numbers)
-    odd_numbers = [numbers[index] for index in range(0, total, step)]
-
+    # First odd number in range (start, stop)
+    number = 0
+    for i in range(start, stop):
+        if i%2 == 1: # Odd number
+            number = i
+            break
+    
+    # Steps until stop
+    step = 2 * step
+    result = []
+    for n in range(number, stop, step):
+        result.append(n)
+    
     # Generator
-    for item in odd_numbers:
+    for item in result:
         yield item
