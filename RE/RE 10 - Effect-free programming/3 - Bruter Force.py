@@ -3,22 +3,11 @@
 
 def brute_force(f, l):
 
-    # For the resolution of the exercise I consulted how to make combinations using comprehensions. 
-    # I found this site that helped me with the task:
-    # https://stackoverflow.com/questions/464864/how-to-get-all-possible-combinations-of-a-list-s-elements
-    
-    from itertools import product as p
+    # All combinations whose lenght is 3 and not (x == y or x == z or z == y)
+    all_combinations = list([(x, y, z) for x in l for y in l for z in l])
+    concatenated= list(["".join(possibility) for possibility in all_combinations])
 
-    n = len(l)
-    all_combinations = list(p(l, repeat = 3))
+    # Filter with the function f
+    result = list([possibility for possibility in concatenated if f(possibility) == True])
 
-    # Combinations whose length is equal to 3 using filter
-    function = lambda j: len(j) == 3
-    allowed_combinations = list(filter(function, all_combinations))
-
-    # Join letters for string to login
-    concatenated = ["".join(letters) for letters in allowed_combinations]
-
-    # Which combinations are possible for login?
-    possibilities = list([x for x in concatenated if f(x) == True])
-    return possibilities
+    return result
