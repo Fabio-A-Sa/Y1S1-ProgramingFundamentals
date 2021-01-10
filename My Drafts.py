@@ -7163,3 +7163,44 @@ def which_room(name):
 
     # name = str(input("Qual o teu nome? \n"))
     # print(which_room(name))
+
+      def lecture_random(something):
+
+    # random.Random().randrange(a, b) for generate one random number between a and b
+    from random import Random as r
+    all_possibilities = r().randrange(1, 100)
+    odd_possibilities = r().randrange(1, 100, 2)
+    even_possibilities = r().randrange(1, 100, 3)
+
+    # Shuffle range
+    normal = list(range(1, 50))
+    r().shuffle(normal)
+    return normal
+
+def lecture_timed(something):
+
+    def somador(alist):
+
+        total = 0
+        for item in alist:
+            total = total + int(item)
+
+        return total
+
+    import time
+    # the subfunction time.time() takes time before and after running a function
+    all_numbers = range(1, 1000000)
+    t_initial = time.time()
+    soma = somador(all_numbers)
+    t_final = time.time()
+    time_interval = round((t_final - t_initial), 10)
+
+    return "This functions times {} seconds to sum all numbers until 1000000.{}The result is {}, a big number!".format(time_interval, "\n", soma)
+
+def lecture_math(something):
+
+    # Import functions of math built-in module
+    from math import sin, cos, tan, pi, e, sqrt
+    # Now I can make counts without "math" before assignment!
+    a = sin(0.585)
+    return a
