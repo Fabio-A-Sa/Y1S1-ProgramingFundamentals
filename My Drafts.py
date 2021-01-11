@@ -7448,3 +7448,91 @@ def closest_pair(points):
 
 points = [(2498, 7397), (2168, 8117), (2168, 6677), (1496, 1976), (8893, 9240), (288, 9467), (7465, 8080), (4588, 1774), (4178, 8118), (3459, 7224)]
 print(closest_pair(points))
+      
+def days_until_empty(C, l):
+    
+    dias_passados = 0
+    agua_no_tanque = C
+
+    while agua_no_tanque > 0:
+
+        dias_passados = dias_passados + 1
+        agua_no_tanque = C - dias_passados if agua_no_tanque + l >= C else agua_no_tanque + l - dias_passados
+        
+    return dias_passados
+
+def find_me(f, limits):
+
+
+    all_numbers = list([x for x in range(limits[0], limits[1])]) if type(limits) is tuple else limits
+    n = len(all_numbers)//2
+
+    left = all_numbers[:n]
+    right = all_numbers[n:]
+
+    if f(all_numbers[n]) == 0:
+        # Found it!
+        return 1
+    
+    if f(right[0]) == -1:
+        return 1 + find_me(f, left)
+
+    # Else
+    return 1 + find_me(f, right)
+
+def binary_tree(key, tree):
+
+    if key == tree[0]:
+        return tree[1]
+
+    else:
+
+        if key < tree[0]:
+            next_function = tree[2]()
+            return binary_tree(key, next_function)
+
+        else:
+            # If key > tree[0] or tree[0] == key
+            next_function = tree[3]()
+            return binary_tree(key, next_function)
+
+def midpoint(p1, p2):
+    mid = (p1 + p2) / 2
+    return mid 
+
+def bisect(f, n, lower=0, upper=1, total=0, aprox=0):
+
+    if n == total:
+        result = round(aprox, 5)
+        return result
+
+    else:
+
+        aprox = midpoint(lower, upper)
+
+        if f(lower)*f(aprox) < 0:
+            return bisect(f, n, lower, aprox, total+1, aprox)
+        else:
+            return bisect(f, n, aprox, upper, total+1, aprox)
+
+def longest_prefix(words):
+
+    if len(words) == 1:
+        return words[0]
+    
+    else:
+
+        words.sort()
+        cobaia = words[0]
+
+        for i in range(len(words)):
+            if cobaia not in words[i]:
+                cobaia = cobaia[:len(cobaia)-1]
+            else:
+                continue
+
+
+        return cobaia
+
+    # words = ['apple', 'apply', 'ape', 'april']
+    # print(longest_prefix(words))
