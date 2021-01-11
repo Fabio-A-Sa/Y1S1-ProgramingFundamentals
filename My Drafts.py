@@ -7282,3 +7282,52 @@ def knapsack(money, products, wishlist):
                                 all_possibilities.append(best_solution)
 
     return (normalization(all_possibilities))[-1]
+
+def bubble_sort(alist):
+
+    s = len(alist)
+    aux = 0
+
+    if s == (0 or 1):
+        return alist
+
+    else:
+        for x in range(s):
+
+            counter = 0
+            flag = True
+
+            while counter + 1 < s :
+                if alist[counter] > alist[counter+1]:
+                    aux = alist[counter+1]
+                    alist[counter+1] = alist[counter]
+                    alist[counter] = aux
+                    flag = flag and False
+                counter = counter + 1
+
+            if flag == True:
+                # Not changed any more values
+                return alist
+
+    # alist = [5, 1, 2, 8, 2.5]
+    # print(bubble_sort(alist))
+    
+def key_reverse (aset):
+    return aset[0]
+
+def mdis_relação_binária(A, B):
+
+    alist = list([tuple((x, y)) for x in A for y in B])
+    alist.sort(key=key_reverse)
+    return set(alist)
+
+    # A = {"a", "b", "c", "d"}
+    # B = {1, 2, 3, 4}
+    # print(mdis_relação_binária(A, B))
+
+def multiples_of7(n):
+
+    for x in range(n):
+        if x%7 == 0:
+            # Generator
+            yield x
