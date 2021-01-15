@@ -1,6 +1,3 @@
-# Created on January, 2021
-# @author: Fábio Araújo de Sá
-
 def aux(f):
     return f if type(f) is list else f()
 
@@ -9,9 +6,9 @@ def bitonic_point(f):
     alist = aux(f)
 
     if len(alist)%2 == 1:
-        middle = (len(alist)+1)//2
+        middle = (len(alist))//2
     else:
-        middle = len(alist)//2
+        middle = (len(alist)-1)//2
 
     left = alist[:middle]
     right = alist[middle:]
