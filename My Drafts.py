@@ -7536,3 +7536,22 @@ def longest_prefix(words):
 
     # words = ['apple', 'apply', 'ape', 'april']
     # print(longest_prefix(words))
+
+      def notebook_23(something):
+
+    from time import perf_counter as t
+    alist = list([x for x in range(191)])
+    with open("first.txt", "w") as myfile:
+        for i in range(181):
+            t0 = t()
+            myfile.write("Qualquer coisa número: {}{}".format(alist[i], "\n"))
+            t1 = t()
+            myfile.write("Tempo gasto: {}{}".format(t1-t0, "\n"))
+    
+    with open("first.txt") as f:
+        content = f.read()
+
+    words = content.split()
+    answer = "File ok. {}There are {} words in the file.".format("\n", len(words))
+
+    return answer
