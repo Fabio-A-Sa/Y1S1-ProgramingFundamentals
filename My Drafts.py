@@ -7587,3 +7587,31 @@ def longest_prefix(words):
     # print("+++++++++++++++++++++++++++++")
     # print(longest_prefix(words))
     # print("+++++++++++++++++++++++++++++")
+      
+def longest_prefix(words):
+
+    from time import perf_counter as t
+    
+    words = words*10000
+    t0 = t()
+    if len(words) == 1:
+        return words[0]
+    
+    else:
+
+        total = 0
+        words.sort()
+        cobaia = words[0]
+
+        for i in range(len(words)):
+            if cobaia not in words[i]:
+                cobaia = cobaia[:len(cobaia)-1]
+                total = total + 1
+            else:
+                continue
+        
+        t1 = t()
+        palavras = len(words)
+        tempo = t1 - t0
+        answer = "Prefixo comum: {}{}Número de ciclos: {}{}Total de palavras procuradas: {}{}Tempo de pesquisa: {} segundos".format(cobaia, "\n", total, "\n", palavras, "\n", round(tempo, 4))
+        return answer
