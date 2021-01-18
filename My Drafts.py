@@ -7622,3 +7622,141 @@ def maldade_do_T(maldade, média_das_notas):
 
         if média_das_notas > 0:
             return maldade_do_T(maldade + 1, média_das_notas - 1)
+
+def maximum_depth(alist):
+
+    if len(alist) == 0:
+        return 1
+
+    if len(alist) == 1:
+        return len(str(alist))//2
+
+    else:
+        return (len(str(alist))-2*(len(alist)-1))//2
+
+def maximum_depth(l):
+
+    total = 0
+    if len(l) == 0:
+        return 1
+
+    if len(l) == 1:
+        return str(l).count("[")
+
+    else:
+
+        total = 0
+
+        for item in l:
+            if len(item) == 0:
+                total = total + 1
+            if len(item) == 1:
+                total = total + str(item).count("[")
+            else:
+                total = total + maximum_depth(item)
+        return total
+
+def combinations(alist):
+
+    combinations = list([(x, y) for x in alist for y in alist if x != y])
+    return combinations
+
+def is_coliding(atuple):
+
+    def A_B(atuple):
+
+        # A is to the left of B
+        ret_A = atuple[0]
+        ret_B = atuple[1]
+
+        first_condition = ret_A['x2'] in range (ret_B['x1'], ret_B['x2'])
+        second_condition = ret_A['y1'] in range (ret_B['y2'], ret_B['y1'])
+
+        third_condition = ret_A['x2'] in range (ret_B['x1'], ret_B['x2'])
+        fourth_condition = ret_A['y2'] in range (ret_B['y2'], ret_B['y1'])
+
+        return (first_condition and second_condition) or (third_condition and fourth_condition)
+
+    def B_A(atuple):
+
+        # B is to the left of A
+        ret_A = atuple[1]
+        ret_B = atuple[0]
+
+        first_condition = ret_A['x2'] in range (ret_B['x1'], ret_B['x2'])
+        second_condition = ret_A['y1'] in range (ret_B['y2'], ret_B['y1'])
+
+        third_condition = ret_A['x2'] in range (ret_B['x1'], ret_B['x2'])
+        fourth_condition = ret_A['y2'] in range (ret_B['y2'], ret_B['y1'])
+
+        return (first_condition and second_condition) or (third_condition and fourth_condition)
+
+    return A_B(atuple) or B_A(atuple)
+
+def number_of_collisions(objects):
+
+    prob_colisions = combinations(objects)
+
+    total = 0
+    for item in prob_colisions:
+
+        if is_coliding(item):
+            total = total + 1
+        else:
+            continue
+
+    return total
+
+    # objects = [{'x1': 37, 'y1': 560, 'x2': 48, 'y2': 634}, {'x1': 456, 'y1': 391, 'x2': 539, 'y2': 404}, {'x1': 407, 'y1': 536, 'x2': 468, 'y2': 589}, {'x1': 538, 'y1': 500, 'x2': 633, 'y2': 573}, {'x1': 343, 'y1': 584, 'x2': 407, 'y2': 606}, {'x1': 334, 'y1': 177, 'x2': 371, 'y2': 220}, {'x1': 239, 'y1': 111, 'x2': 325, 'y2': 159}, {'x1': 512, 'y1': 343, 'x2': 540, 'y2': 356}, {'x1': 544, 'y1': 341, 'x2': 578, 'y2': 439}, {'x1': 33, 'y1': 143, 'x2': 57, 'y2': 237}, {'x1': 200, 'y1': 403, 'x2': 260, 'y2': 458}, {'x1': 454, 'y1': 102, 'x2': 516, 'y2': 160}, {'x1': 522, 'y1': 59, 'x2': 578, 'y2': 133}, {'x1': 68, 'y1': 546, 'x2': 112, 'y2': 594}, {'x1': 251, 'y1': 354, 'x2': 268, 'y2': 390}, {'x1': 234, 'y1': 564, 'x2': 260, 'y2': 619}, {'x1': 130, 'y1': 473, 'x2': 163, 'y2': 507}, {'x1': 556, 'y1': 225, 'x2': 630, 'y2': 287}, {'x1': 181, 'y1': 145, 'x2': 232, 'y2': 234}, {'x1': 455, 'y1': 122, 'x2': 516, 'y2': 154}, {'x1': 490, 'y1': 359, 'x2': 545, 'y2': 422}, {'x1': 514, 'y1': 503, 'x2': 613, 'y2': 520}, {'x1': 264, 'y1': 470, 'x2': 290, 'y2': 518}, {'x1': 146, 'y1': 262, 'x2': 157, 'y2': 320}, {'x1': 117, 'y1': 503, 'x2': 155, 'y2': 515}, {'x1': 52, 'y1': 280, 'x2': 91, 'y2': 348}, {'x1': 119, 'y1': 99, 'x2': 191, 'y2': 192}, {'x1': 554, 'y1': 588, 'x2': 636, 'y2': 658}, {'x1': 441, 'y1': 287, 'x2': 478, 'y2': 332}, {'x1': 123, 'y1': 60, 'x2': 185, 'y2': 118}, {'x1': 440, 'y1': 193, 'x2': 484, 'y2': 260}, {'x1': 232, 'y1': 136, 'x2': 248, 'y2': 187}, {'x1': 96, 'y1': 225, 'x2': 174, 'y2': 301}, {'x1': 291, 'y1': 27, 'x2': 311, 'y2': 75}, {'x1': 247, 'y1': 348, 'x2': 257, 'y2': 438}, {'x1': 491, 'y1': 548, 'x2': 570, 'y2': 613}, {'x1': 375, 'y1': 100, 'x2': 420, 'y2': 152}, {'x1': 375, 'y1': 235, 'x2': 398, 'y2': 256}, {'x1': 272, 'y1': 451, 'x2': 294, 'y2': 484}, {'x1': 248, 'y1': 480, 'x2': 342, 'y2': 578}, {'x1': 331, 'y1': 445, 'x2': 406, 'y2': 502}, {'x1': 243, 'y1': 35, 'x2': 322, 'y2': 69}, {'x1': 14, 'y1': 165, 'x2': 98, 'y2': 229}, {'x1': 425, 'y1': 556, 'x2': 464, 'y2': 648}, {'x1': 82, 'y1': 46, 'x2': 162, 'y2': 100}, {'x1': 482, 'y1': 65, 'x2': 532, 'y2': 129}, {'x1': 254, 'y1': 1, 'x2': 329, 'y2': 77}, {'x1': 431, 'y1': 471, 'x2': 504, 'y2': 525}, {'x1': 242, 'y1': 169, 'x2': 306, 'y2': 225}, {'x1': 400, 'y1': 484, 'x2': 420, 'y2': 578}, {'x1': 167, 'y1': 464, 'x2': 246, 'y2': 485}, {'x1': 416, 'y1': 479, 'x2': 443, 'y2': 500}, {'x1': 272, 'y1': 281, 'x2': 358, 'y2': 313}, {'x1': 357, 'y1': 10, 'x2': 444, 'y2': 30}, {'x1': 337, 'y1': 55, 'x2': 421, 'y2': 137}, {'x1': 555, 'y1': 588, 'x2': 624, 'y2': 668}, {'x1': 330, 'y1': 213, 'x2': 395, 'y2': 280}, {'x1': 452, 'y1': 332, 'x2': 540, 'y2': 391}, {'x1': 265, 'y1': 491, 'x2': 301, 'y2': 573}, {'x1': 433, 'y1': 256, 'x2': 450, 'y2': 297}, {'x1': 309, 'y1': 212, 'x2': 376, 'y2': 268}, {'x1': 435, 'y1': 113, 'x2': 467, 'y2': 186}, {'x1': 406, 'y1': 584, 'x2': 420, 'y2': 632}, {'x1': 37, 'y1': 72, 'x2': 137, 'y2': 137}, {'x1': 101, 'y1': 465, 'x2': 191, 'y2': 541}, {'x1': 591, 'y1': 432, 'x2': 644, 'y2': 457}, {'x1': 419, 'y1': 330, 'x2': 481, 'y2': 425}, {'x1': 437, 'y1': 314, 'x2': 475, 'y2': 346}, {'x1': 156, 'y1': 453, 'x2': 176, 'y2': 524}, {'x1': 16, 'y1': 285, 'x2': 90, 'y2': 348}, {'x1': 75, 'y1': 353, 'x2': 94, 'y2': 441}, {'x1': 55, 'y1': 81, 'x2': 72, 'y2': 112}, {'x1': 520, 'y1': 152, 'x2': 544, 'y2': 162}, {'x1': 139, 'y1': 577, 'x2': 225, 'y2': 624}, {'x1': 415, 'y1': 364, 'x2': 438, 'y2': 445}, {'x1': 406, 'y1': 387, 'x2': 459, 'y2': 428}, {'x1': 317, 'y1': 77, 'x2': 390, 'y2': 107}, {'x1': 390, 'y1': 282, 'x2': 439, 'y2': 338}, {'x1': 380, 'y1': 10, 'x2': 460, 'y2': 69}, {'x1': 261, 'y1': 358, 'x2': 336, 'y2': 452}, {'x1': 132, 'y1': 482, 'x2': 214, 'y2': 507}, {'x1': 167, 'y1': 432, 'x2': 250, 'y2': 473}, {'x1': 45, 'y1': 550, 'x2': 137, 'y2': 603}, {'x1': 265, 'y1': 278, 'x2': 315, 'y2': 312}, {'x1': 207, 'y1': 517, 'x2': 227, 'y2': 571}, {'x1': 303, 'y1': 286, 'x2': 320, 'y2': 350}, {'x1': 406, 'y1': 214, 'x2': 493, 'y2': 277}, {'x1': 532, 'y1': 325, 'x2': 549, 'y2': 391}, {'x1': 337, 'y1': 158, 'x2': 355, 'y2': 210}, {'x1': 25, 'y1': 482, 'x2': 53, 'y2': 561}, {'x1': 255, 'y1': 62, 'x2': 317, 'y2': 160}, {'x1': 215, 'y1': 190, 'x2': 284, 'y2': 284}, {'x1': 93, 'y1': 495, 'x2': 185, 'y2': 547}, {'x1': 500, 'y1': 46, 'x2': 539, 'y2': 99}, {'x1': 405, 'y1': 256, 'x2': 481, 'y2': 273}, {'x1': 361, 'y1': 416, 'x2': 419, 'y2': 477}, {'x1': 203, 'y1': 486, 'x2': 237, 'y2': 574}, {'x1': 356, 'y1': 137, 'x2': 415, 'y2': 230}, {'x1': 240, 'y1': 466, 'x2': 252, 'y2': 501}, {'x1': 203, 'y1': 418, 'x2': 289, 'y2': 440}]
+    # print(number_of_collisions(objects))
+
+# 2 Tic Tac
+
+def possibilities(board, player):
+
+    def which_is(board, player):
+
+        diagonal_1 = list([board[0][0], board[1][1], board[2][2]])
+        diagonal_2 = list([board[0][2], board[1][1], board[2][0]])
+
+        coluna_1 = list([board[0][0], board[0][1], board[0][2]])
+        coluna_2 = list([board[1][0], board[1][1], board[1][2]])
+        coluna_3 = list([board[2][0], board[2][1], board[2][2]])
+
+        linha_1 = list(board[0])
+        linha_2 = list(board[1])
+        linha_3 = list(board[2])
+
+        all_possibilities = (diagonal_1, diagonal_2, coluna_1, coluna_2, coluna_3, linha_1, linha_2, linha_3)
+        not_player = "x" if player == "o" else "o"
+
+        for item in all_possibilities:
+            if item.count(player) == 2 and item.count(not_player) == 0:
+                break
+
+        return item
+    
+    return which_is(board, player)
+
+def string_to_list(astring):
+
+    alist = [[], [], []]
+
+    i = 0
+    for item in astring.split("\n"):
+        for substring in item:
+            alist[i].append(substring)
+        i = i + 1
+
+    return alist
+
+def tic_tac_toe(board, player):
+
+    game = string_to_list(board)
+    jogada_correcta = possibilities(game, player)
+
+    return jogada_correcta
+
+board = 'x x\n o \nxoo'
+player = "o"
+print(tic_tac_toe(board, player))
