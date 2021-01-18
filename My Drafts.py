@@ -7615,3 +7615,10 @@ def longest_prefix(words):
         tempo = t1 - t0
         answer = "Prefixo comum: {}{}Número de ciclos: {}{}Total de palavras procuradas: {}{}Tempo de pesquisa: {} segundos".format(cobaia, "\n", total, "\n", palavras, "\n", round(tempo, 4))
         return answer
+      
+def maldade_do_T(maldade, média_das_notas):
+
+    while não_chumbarem_todos:
+
+        if média_das_notas > 0:
+            return maldade_do_T(maldade + 1, média_das_notas - 1)
