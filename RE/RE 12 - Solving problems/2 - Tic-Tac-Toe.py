@@ -1,3 +1,6 @@
+# Created on January, 2021
+# @author: Fábio Araújo de Sá
+
 def possibilities(board, player):
 
     def which_is(board, player):
