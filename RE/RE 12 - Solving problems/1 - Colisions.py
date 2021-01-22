@@ -1,3 +1,7 @@
+  
+# Created on January, 2021
+# @author: Fábio Araújo de Sá
+
 def combinations(alist):
 
     combinations = list([(x, y) for x in alist for y in alist if x != y])
@@ -5,35 +9,17 @@ def combinations(alist):
 
 def is_coliding(atuple):
 
-    def A_B(atuple):
+    ret_A = atuple[0]
+    ret_B = atuple[1]
 
-        # A is to the left of B
-        ret_A = atuple[0]
-        ret_B = atuple[1]
+    # If XXs are not close
+    answer1 = ret_A['x2'] < ret_B['x1'] or ret_A['x1'] > ret_B['x2'] 
 
-        first_condition = ret_A['x2'] > ret_B['x1'] and ret_A['x2'] < ret_B['x2']
-        second_condition = ret_A['y1'] > ret_B['y2'] and ret_A['y1'] < ret_B['y1']
+    # If YYs are not close
+    # In programming the YYs grow down!
+    answer2 = ret_B['y1'] > ret_A['y2'] or ret_A['y1'] > ret_B['y2'] 
 
-        third_condition = ret_A['x2'] > ret_B['x1'] and ret_A['x2'] < ret_B['x2']
-        fourth_condition = ret_A['y2'] > ret_B['y2'] and ret_A['y1'] < ret_B['y1']
-
-        return (first_condition and second_condition) or (third_condition and fourth_condition)
-
-    def B_A(atuple):
-
-        # B is to the left of A
-        ret_A = atuple[1]
-        ret_B = atuple[0]
-
-        first_condition = ret_A['x2'] > ret_B['x1'] and ret_A['x2'] < ret_B['x2']
-        second_condition = ret_A['y1'] > ret_B['y2'] and ret_A['y1'] < ret_B['y1']
-
-        third_condition = ret_A['x2'] > ret_B['x1'] and ret_A['x2'] < ret_B['x2']
-        fourth_condition = ret_A['y2'] > ret_B['y2'] and ret_A['y1'] < ret_B['y1']
-
-        return (first_condition and second_condition) or (third_condition and fourth_condition)
-
-    return A_B(atuple) or B_A(atuple)
+    return not (answer1 or answer2)
 
 def number_of_collisions(objects):
 
@@ -46,5 +32,7 @@ def number_of_collisions(objects):
             total = total + 1
         else:
             continue
-
-    return total
+    
+    # Duplicate elimination
+    answer = total // 2
+    return answer
