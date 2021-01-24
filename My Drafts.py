@@ -8510,3 +8510,103 @@ def move_ball(board):
 
 board = ['E \\', '/ /', '   ', '\\ X']
 print(move_ball(board))
+
+      # Import module random
+import random
+
+def cows_bulls(seed):
+    
+    # Random seed from FPRO
+    random.seed(seed)
+    
+    def how_many(guess):
+
+        certo = random.randint(0000, 9999)
+        
+        correct = [x for x in str(certo)]
+        number = [x for x in str(guess)]
+        
+        # Cows - Correct number in correct position
+        cows = 0
+        for index, value in enumerate(number):
+
+            if value == correct[index]:                
+                if index == correct.index(value):
+                        
+                        cows = cows + 1
+                        correct[index] = "x"
+                        
+        # Bulls - Correct number in wrong position
+        bulls = 0        
+        for index, value in enumerate(number):
+           
+            if value in correct:      
+                bulls = bulls + 1
+                correct[correct.index(value)] = "x"
+                    
+        return cows, bulls
+    
+    return how_many
+      
+  def partida(board):
+
+    cardinal = ["N", "S", "E", "O"]
+
+    # Search in matriz
+    for x, y in enumerate(board):
+        for z, c in enumerate(y):
+            if c in cardinal:
+
+                ponto = (x, z)
+                sentido_inicial = c
+
+                return ponto, sentido_inicial
+
+def new_direction(coordinate, objecto):
+
+    if objecto == "\\" and (coordinate == "E" or coordinate == "S"):
+        c = ["E", "S"]
+        return c[c.index(coordinate)-1]
+
+    if objecto == "\\" and (coordinate == "O" or coordinate == "N"):
+        c = ["O", "N"]
+        return c[c.index(coordinate)-1]
+
+    if objecto == "/" and (coordinate == "E" or coordinate == "N"):
+        c = ["E", "N"]
+        return c[c.index(coordinate)-1]
+
+    if objecto == "/" and (coordinate == "O" or coordinate == "S"):
+        c = ["O", "S"]
+        return c[c.index(coordinate)-1]
+
+    return coordinate
+
+def move_ball(board):
+
+    coordinates = []
+
+    directions = {
+        "N" : (0, -1),
+        "S" : (0, +1),
+        "E" : (+1, 0),
+        "O" : (-1, 0),
+    }
+
+    begin = partida(board)
+    final = "X"
+    coordinates.append(begin[0])
+
+    x = begin[0][0]
+    y = begin[0][1]
+    rumo = begin[1]
+
+    while final not in board[x][y]:
+
+        sentido = directions[rumo]
+        x = x + sentido[1]
+        y = y + sentido[0]
+        coordinates.append((x, y))
+        rumo = new_direction(rumo, board[x][y])
+
+    return coordinates
