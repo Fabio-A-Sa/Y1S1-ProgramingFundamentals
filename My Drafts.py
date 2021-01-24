@@ -8458,3 +8458,55 @@ seed = 98765432
 print(play(seed))
 seed = 98765432
 print(play(seed))
+      
+      
+      def partida(board):
+
+    cardinal = ["N", "S", "E", "O"]
+
+    # Search in matriz
+    for x, y in enumerate(board):
+        for z, c in enumerate(y):
+            if c in cardinal:
+
+                ponto = (x, z)
+                sentido_inicial = c
+
+                return ponto, sentido_inicial
+
+def new_direction(coordinate, objecto):
+
+    return new_coordinate
+
+def move_ball(board):
+
+    coordinates = []
+
+    directions = {
+        "N" : (0, -1),
+        "S" : (0, +1),
+        "E" : (+1, 0),
+        "O" : (-1, 0),
+    }
+
+    final = "x"
+    begin = partida(board)
+    coordinates.append(begin[0])
+
+    x = begin[0][0]
+    y = begin[0][1]
+    rumo = begin[1]
+
+    while final not in board[x][y]:
+
+        sentido = directions[rumo]
+
+
+        #Atenção a isto!!
+        coordinates.append(x+sentido[1], y+sentido[0])
+        rumo = new_direction(rumo, board[x][y])
+
+    return coordinates
+
+board = ['E \\', '/ /', '   ', '\\ X']
+print(move_ball(board))
