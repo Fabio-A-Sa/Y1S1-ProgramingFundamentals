@@ -8701,3 +8701,19 @@ map_rectangle = (0, 0, 735, 959)
 search_retangle = (417, 697, 316, 238)
 
 print(search_map(('A', (None, None, 'E', 'F'), ('D', None, None, 'B'), 'C'), map_rectangle, search_retangle))
+      
+def maximum_depth(alist):
+    
+    # Caso base
+    if alist == []:
+        return 1
+
+    # Else
+    total = 0
+    for item in alist:
+        sub_total = maximum_depth(item)
+        if sub_total > total:
+            total = sub_total
+
+    total = total + 1 # Add [] form        
+    return total
