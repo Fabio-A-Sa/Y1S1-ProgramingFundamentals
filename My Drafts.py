@@ -8932,3 +8932,20 @@ def longest(filename):
 
     return longest_word[-1]
         
+def reciprocals(alist):
+
+    answer = []
+
+    for item in alist:
+
+        try:
+            number = 1/item
+            answer.append(round(number, 3))
+        
+        except TypeError:
+            continue
+            
+        except ZeroDivisionError:
+            continue
+
+    return answer
