@@ -1,9 +1,9 @@
-def ordem(something):
-    # Coordenada x 
-    return something[0]
+  
+# Created on January, 2021
+# @author: Fábio Araújo de Sá
 
 def ordenação(alist):
-    return sorted(alist, key=ordem)
+    return sorted(alist, key = lambda x: x[0])
 
 def distâncias(ponto1, ponto2):
 
@@ -18,34 +18,31 @@ def distâncias(ponto1, ponto2):
 
 def separação(alist):
 
-    n = len(alist)
-    if n%2 == 1:
-        middle = (n-1)//2
-    else:
-        middle = n//2
+    middle = len(alist)//2
 
     left = alist[:middle]
     right = alist[middle:]
 
     return (left, right)
 
-def rec_distance(alist, best_distance = 10000000000000):
-
-    
-
-    return best_distance
-
 def closest_pair(points):
 
+    # Initial conditions
+    if len(points) == 2:
+        return distâncias(points[1], points[0])
+    if len(points) == 3:
+        return min( distâncias(points[0], points[1]), 
+                    distâncias(points[0], points[2]), 
+                    distâncias(points[1], points[2]))
+
     points = ordenação(points)
-    
+
     left = separação(points)[0]
     right = separação(points)[1]
 
-    min_distance_left = rec_distance(left)
-    min_distance_right = rec_distance(right)
+    min_distance = min(closest_pair(left), closest_pair(right))
 
-    return left, right
+    all_values = list([min_distance]) + list([distâncias(l, r) for l in left for r in right if abs(r[0]-l[0]) < min_distance])
+    answer = min(all_values)
 
-points = [(2498, 7397), (2168, 8117), (2168, 6677), (1496, 1976), (8893, 9240), (288, 9467), (7465, 8080), (4588, 1774), (4178, 8118), (3459, 7224)]
-print(closest_pair(points))
+    return answer
