@@ -8999,3 +8999,26 @@ def mail_merge(names, mail_template):
         all_emails.append(new_email)
 
     return all_emails
+      
+def diff(filename1, filename2):
+
+    all_lines = []
+    mais = "+ "
+    menos = "- "
+
+    with open(filename1, "r") as f1:
+        lines_1 = list([line for line in f1.readlines()])
+
+    with open(filename2, "r") as f2:
+        lines_2 = list([line for line in f2.readlines()])
+
+    for line in lines_1:
+        local_line = ""
+        if line in lines_2:
+            local_line = menos + line
+            all_lines.append(local_line)
+        else:
+            local_line = mais + line
+            all_lines.append(local_line)
+
+    return all_lines
