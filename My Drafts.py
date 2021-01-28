@@ -8904,3 +8904,31 @@ def town():
         print("Maybe you should have picked up the flower. You died!")
 
 intro()
+
+def division(a, b):
+
+    try:
+        number = a/b
+        return "{}/{} = {}".format(a, b, number)
+
+    except ZeroDivisionError:
+        return "can't divide by 0!"
+        
+    except TypeError:
+        return "unsupported operand type(s) for division"
+      
+def longest(filename):
+
+    longest_word = []
+    length = 0
+
+    with open(filename, "r") as this_file:
+        for line in this_file:
+            search = line.split(" ")
+            for word in search:
+                if len(word) > length:
+                    longest_word.append(word)
+                    length = len(word)
+
+    return longest_word[-1]
+        
