@@ -25,3 +25,11 @@ def overlaps(segments):
     return set(result)
   
 # JCL's better solution:
+
+def is_overlap(s1, s2) -> bool:
+    """ find out if the two segments (start, end) overlap """
+    return not (s1[0] > s2[1] or s1[1] < s2[0])
+    
+def overlaps(segments):
+    # using a set comprehension, compare each segment with all the others
+    return {(i, j) for i in range(len(segments)) for j in range(i+1, len(segments)) if is_overlap(segments[i], segments[j])}
