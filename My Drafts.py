@@ -9084,3 +9084,92 @@ def nested_exceptions(tree):
 
     answers = tuple(all_answers)
     return answers
+      
+def lists_to_dict(list1, list2):
+    
+    result = {}
+    
+    for key in list1:
+        for value in list2:
+            
+            if list1.index(key) == list2.index(value):
+                
+                result[key] = value
+                
+    return result
+                
+def sum_dicts(lst):
+    
+    result = {}
+    
+    for dictionary in lst:
+        for key in dictionary:
+            
+            result[key] = 0
+    
+    for dictionary in lst:
+        for key in dictionary:
+            
+            result[key] = result[key] + dictionary[key]
+            
+            
+    return result
+      
+def rec_fib(n):
+    
+    if n == 1:
+        return 1
+    if n == 2:
+        return 1
+    if n == 3:
+        return 2
+    else:
+        return rec_fib(n-1) + rec_fib(n-2)
+    
+    
+def fib(start, end):
+    
+    all_numbers = []
+    
+    for n in range(start, end+1):
+        all_numbers.append(rec_fib(n))
+    
+    for number in all_numbers:
+        yield number
+      
+def overlaps(segments):
+    
+    result = []
+    
+    for i in range(len(segments)):
+        
+        for j in range(i, len(segments)):
+            
+            if j > i:
+                
+                alist1 = [x for x in range(segments[i][0], segments[i][1])]
+                alist2 = [x for x in range(segments[j][0], segments[j][1])]
+                local_tuple = ()
+                
+                for number in alist2:
+                    if number in alist1:
+                        
+                        # Interseção!
+                        local_tuple = i, j
+                        result.append(local_tuple)
+
+    return set(result)
+      
+import functools, itertools
+
+def rec_hof(hofs, lst):
+    
+    # Se já não houver funções, a lista pretendida é a que está em lst
+    if hofs == []:
+        return lst
+    
+    # Se ainda houver funções, chamada recursiva entre o resto das funções e 
+    # a lista derivada da função em índice 0
+
+    else:
+        return rec_hof(hofs[:len(hofs)-1], hofs[-1][0](hofs[-1][1], lst))
