@@ -9313,3 +9313,17 @@ def rec_hof3(hofs, lst):
     (f_op, f_arg) = hofs[0]
 
     return f_op(f_arg, aux)
+      
+import difflib
+def diff(filename1, filename2):
+
+    file1 = open(filename1, 'r').readlines()
+    one = list([" " + line for line in file1])
+    file2 = open(filename2, 'r').readlines()
+    two = list([" " + line for line in file2])
+
+    diff = difflib.unified_diff(one, two)
+    delta = ''.join(diff)
+    return delta[26:]
+
+print(len("--- \n+++ \n@@ -1,5 +1,5 @@\n"))
