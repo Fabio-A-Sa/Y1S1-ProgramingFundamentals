@@ -9173,3 +9173,45 @@ def rec_hof(hofs, lst):
 
     else:
         return rec_hof(hofs[:len(hofs)-1], hofs[-1][0](hofs[-1][1], lst))
+import time
+
+def rec_fib(n):
+
+    fib_values = {
+
+        1 : 1,
+        2 : 1,
+        3 : 2,
+
+    }
+
+    if n in fib_values.keys():
+        return fib_values[n]
+
+    else:
+        fib_values[n] = rec_fib(n-1) + rec_fib(n-2)
+        return fib_values[n]
+
+    
+def fib(start, end):
+    
+    all_numbers = []
+    total = 0
+    t0 = time.perf_counter()
+
+    for n in range(start, end+1):
+        print("Número {} da Sequência de Fibonacci --> {}".format(n, rec_fib(n)))
+        t1 = time.perf_counter()
+        total = total + t1
+        print("Tempo que demorou: {} segundos".format(round(t1-t0, 2)))
+        print(" ")
+        all_numbers.append(rec_fib(n))
+    
+    t1 = time.perf_counter()
+    
+    print(" ")
+    return "Processo finalizado. Tempo total utilizado: {} minutos!".format(total//60)
+
+start = 10
+end = 40
+print(fib(10, 40))
