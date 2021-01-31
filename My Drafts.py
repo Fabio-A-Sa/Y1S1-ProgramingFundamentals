@@ -9536,3 +9536,126 @@ board =[[9, 3, 7, 1, 4, 2, 5, 8, 6],
         [2, 1, 3, 5, 6, 9, 4, 7, 8]]
 
 print(solve_sudoku(board))
+
+      def find_it(seq):
+
+    adict = {}
+    
+    for number in seq:
+        if number in adict.keys():
+            adict[number] += 1
+        else:
+            adict[number] = adict.get(number, 0) + 1
+    
+    for number in adict.keys():
+        if adict[number]%2 == 1:
+            return number
+
+    return "There isn't a odd occurence"
+
+def morse_code(a_message):
+
+    morse = {   
+                'A':'.-', 
+                'B':'-...', 
+                'C':'-.-.', 
+                'D':'-..', 
+                'E':'.', 
+                'F':'..-.', 
+                'G':'--.', 
+                'H':'....', 
+                'I':'..', 
+                'J':'.---', 
+                'K':'-.-', 
+                'L':'.-..', 
+                'M':'--', 
+                'N':'-.', 
+                'O':'---', 
+                'P':'.--.', 
+                'Q':'--.-', 
+                'R':'.-.', 
+                'S':'...', 
+                'T':'-', 
+                'U':'..-', 
+                'V':'...-', 
+                'W':'.--', 
+                'X':'-..-', 
+                'Y':'-.--', 
+                'Z':'--..', 
+                '1':'.----', 
+                '2':'..---', 
+                '3':'...--', 
+                '4':'....-', 
+                '5':'.....', 
+                '6':'-....', 
+                '7':'--...', 
+                '8':'---..', 
+                '9':'----.', 
+                '0':'-----', 
+                ', ':'--..--', 
+                '.':'.-.-.-', 
+                '?':'..--..', 
+                '/':'-..-.', 
+                '-':'-....-', 
+                '(':'-.--.', 
+                ')':'-.--.-'     
+                
+            } 
+
+    def encrypt(message, morse):
+
+        # Split parts of message --> words, sentences
+        sentences_words = list([sentence.split(" ") for sentence in message.split(".")])
+        print(sentences_words)
+        answer = "" # Acumulator
+        for sentence in sentences_words:
+            for word in sentence:
+                for letter in word:
+
+                    try:
+                        answer = answer + morse[letter]
+                    except:
+                        continue
+
+                answer = answer + " " # Add space
+            answer = answer + "/ " # Add comma for next sentence
+        
+        return answer.strip() # Remove needless spaces
+
+    def decrypt(message, morse):
+
+        # Split parts of message --> words, sentences
+        sentences_words = list([sentence.split(" ") for sentence in message.split("/")])
+        print(sentences_words)
+        answer = "" # Acumulator
+        for sentence in sentences_words:
+            print(sentence)
+            for word in sentence:
+                print(word)
+                for letter in word:
+
+                    answer = answer + morse[letter]
+
+
+                answer = answer + " " # Add space
+            answer = answer + " / "
+        return answer.strip() # Remove needless spaces
+
+    # Alphabetic import
+    from string import ascii_letters as abc 
+
+    # Imput normalization ()
+    message = str(a_message).strip().replace(". ",".").replace(", ", " ").upper()
+
+    if message[0] in abc:
+        # Return an encrypted message:
+        return encrypt(message, morse)
+
+    if message[0] not in abc:
+        # Return a decrypted message:
+        return decrypt(message, morse)
+
+    else:
+        return "Input error. Try again!"
+
+print(morse_code("isto e apenas, mais um. um teste"))
