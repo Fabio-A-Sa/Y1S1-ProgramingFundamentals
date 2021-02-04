@@ -11,6 +11,4 @@ def which_are_in(l1, l2):
                 if item1 not in result:
                     result.append(item1)
 
-
-
     return sorted(result)
