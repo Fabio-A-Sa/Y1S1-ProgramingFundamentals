@@ -16,8 +16,10 @@ def sqrt(num, k):
         answer_list.append(round(next, 2))
         delta = initial - next
         initial = next
-        if delta > 0.0001:
+        if delta >= 0.0001:
             continue
+        else:
+            break
 
     # Generator
     for number in answer_list:
