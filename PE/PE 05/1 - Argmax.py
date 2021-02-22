@@ -18,5 +18,5 @@ def argmax2(lst):
 
     return None
 
-alist = [1, 10, 1, 2, 10]
-print(argmax2(alist))
+# alist = [1, 10, 1, 2, 10]
+# print(argmax2(alist))
