@@ -24,6 +24,6 @@ def n_lists(alist, n):
             return list(n_lists(thing, n))
 
 
-alist = [[0], [1, 2, 3, 8, 9, 10], [5, 6]]
-n = 2
-print(n_lists(alist, n))
+# alist = [[0], [1, 2, 3, 8, 9, 10], [5, 6]]
+# n = 2
+# print(n_lists(alist, n))
