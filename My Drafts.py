@@ -9912,5 +9912,144 @@ def en_adventure():
 
     intro()
 
-# Begin
-begin()
+if __name__ == "__main__":
+    begin()
+
+def argmax1(lst):
+    return (lst.index(max(lst)))
+
+def argmax2(lst):
+
+    maior = -10000000
+    for number in lst:
+        if number > maior:
+            maior = number
+
+    for index in range(len(lst)):
+        if maior == lst[index]:
+            return index
+        index = index + 1
+
+    return None
+
+def sum_sublists(lst):
+
+    sum_lists = []
+
+    pointer = 0
+    index_max = len(lst[0])
+
+    while pointer < index_max:
+
+        total = 0
+        for sublist in lst:
+            total = total + sublist[pointer]
+
+        sum_lists.append(total)
+        pointer = pointer + 1
+
+    return sum_lists
+
+def sqrt(num, k):
+
+    answer_list = []
+    auxiliar = num
+    delta = 100
+
+    # List constructor
+    initial = auxiliar / 2
+    answer_list.append(initial)
+    while len(answer_list) != k:
+
+        next = (initial + auxiliar/initial)/2
+        answer_list.append(round(next, 2))
+        delta = initial - next
+        initial = next
+        if delta >= 0.0001:
+            continue
+        else:
+            break
+
+    # Generator
+    for number in answer_list:
+        yield number 
+
+def n_lists(alist, n):
+    
+    for thing in alist:
+        if type(thing[0]) is int:
+        
+            new = []
+            for sublist in alist:
+
+                if len(sublist) <= n:
+                    new.append(sublist)
+
+                else:
+                    while len(sublist) > n:
+                        new.append(sublist[:n])
+                        sublist = sublist[n:]
+                    new.append(sublist)
+            
+            return new
+
+        else: # it's a list --> recursive search
+            return list(n_lists(thing, n))
+
+def balanced_parenthesis(expression):
+
+    if len(expression) in [0, 1] or expression in [')(', '][']:
+        return -1
+
+    else:
+
+        retos = ""
+        curvos = ""
+        total = ""
+
+        mirror =    {
+                        ")" : "(",
+                        "(" : ")",
+                        "[" : "]",
+                        "]" : "[",
+                    }
+
+        for char in expression:
+            if char == ")" or char == "(":
+                curvos = curvos + char
+                total = total + char
+            elif char == "]" or char == "[":
+                retos = retos + char
+                total = total + char
+            else:
+                continue
+        
+        qdt_retos = len(retos)
+        qdt_curvos = len(curvos)
+
+        flag = (qdt_curvos % 2 == 0) and (qdt_retos % 2 == 0)
+        if flag:
+
+            for index in range(qdt_curvos // 2):
+                flag = flag and (curvos[index] != curvos[-index-1])
+
+            for index in range(qdt_retos // 2):
+                flag = flag and (retos[index] != retos[-index-1])
+
+            if flag:
+
+                qtd_total = len(total) // 2
+                for index in range(qtd_total):
+                    char = total[index]
+                    flag = flag and (mirror[char] == total[-index-1])
+
+                if flag:
+                    number_of_pairs = ( len(retos) + len(curvos) ) // 2
+                    return number_of_pairs
+
+                else:
+                    return -1
+            else:
+                return -1
+        else:
+            return -1
