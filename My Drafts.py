@@ -10228,3 +10228,27 @@ def example2 ():
         return None
     
     return some_function
+
+def print_degrees():
+
+    # Exercício de Engenharia Mecânica da Universidade de Coimbra resolvido com Python para um amigo.
+    # Ajuda para o Henrique
+
+    from math import pi, cos, sin
+    all_angles = [x for x in range(1, 90, 1)]
+    all_deslocamentos = []
+
+    v = int(input("Módulo da velocidade? "))
+
+    for angle in range(1,90,1):
+        x = angle*pi/180
+        a = sin(x)
+        b = cos(x)
+        r = round((v*v*a*b)/5, 2)
+        all_deslocamentos.append(r)
+
+    answer = all_angles[all_deslocamentos.index(max(all_deslocamentos))], max(all_deslocamentos)
+    print("O ângulo que permite o maior valor de deslocamento é {} graus".format(answer[0]))
+    print("O deslocamento máximo para a velocidade {} m/s e ângulo {} graus é {} metros".format(v, answer[0], answer[1]))
+
+    return None
