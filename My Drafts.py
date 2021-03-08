@@ -10240,7 +10240,7 @@ def print_degrees():
 
     v = int(input("Módulo da velocidade? "))
 
-    for angle in range(1,90,1):
+    for angle in all_angles:
         x = angle*pi/180
         a = sin(x)
         b = cos(x)
