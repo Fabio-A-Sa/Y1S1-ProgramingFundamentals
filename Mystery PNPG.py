@@ -54,6 +54,7 @@ def decrypt2 (message):
 
     return numbers
 
+
 def get_coordinates ( alist ) :
 
     from math import floor as rd 
@@ -61,8 +62,21 @@ def get_coordinates ( alist ) :
     available = []
 
     for number in alist:
-        if len(str()) == 2:
-
+        if len(str(rd(number))) == 2 and rd(number) < 60:
+            if len(str(number)) == 5:
+                string = str(number) + "0"
+                available.append(string)
+            else:
+                available.append(str(number))
+        else:
+            continue
+    
+    n = "N 41 "
+    w = " W 008 "
+    combinations = [(x, y) for x in available for y in available]
+    for norte, oeste in combinations:
+        attemp = n + norte + w + oeste
+        possibilities.append(attemp)
 
     return possibilities
 
