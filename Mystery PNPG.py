@@ -56,13 +56,19 @@ def decrypt2 (message):
 
 def get_coordinates ( alist ) :
 
+    from math import floor as rd 
     possibilities = []
+    available = []
+
+    for number in alist:
+        if len(str()) == 2:
 
 
-    return
+    return possibilities
 
 code = "bch.ga dc.ag bia.jeh bf.jjj hc.gda bf.jjj ea.ahi bc.abb b.aai bbe.ibi gj.hcd cg.jib bcg.jae he.jcb + eh.igh fi.jdd"
 numbers = decrypt1(code)
+print(numbers)
 print(get_coordinates(numbers))
 
  
