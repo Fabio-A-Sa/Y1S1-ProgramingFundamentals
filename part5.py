@@ -1,3 +1,5 @@
+# FAS, 2021/03/19
+
 from string import ascii_uppercase as abc
 
 instructions = "Para Santiago por vezes segue-se o azul e só depois o amarelo. Nas termas recupera-se melhor a cantar."
