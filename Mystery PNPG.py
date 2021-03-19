@@ -105,8 +105,7 @@ def decrypt_A1 (message):
 code = "bch.ga dc.ag bia.jeh bf.jjj hc.gda bf.jjj ea.ahi bc.abb b.aai bbe.ibi gj.hcd cg.jib bcg.jae he.jcb + eh.igh fi.jdd"
 decrypt_A0(code)
 decrypt_A1(code)
-
-#print(get_coordinates(numbers))
+print(get_coordinates(numbers))
 
  
 
