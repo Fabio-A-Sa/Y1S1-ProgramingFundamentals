@@ -55,10 +55,58 @@ def get_coordinates ( alist ) :
         print(pos)
     return possibilities
 
+
+
+def decrypt_MAIN (message):
+
+    from string import ascii_lowercase as abc
+    for caracter in message:
+        if caracter in abc:
+            if abc.find(caracter) == 9:
+                message = message.replace(caracter, str(0))
+            else:   
+                message = message.replace(caracter, str(abc.find(caracter)+1))
+        else:
+            continue
+    
+    print("A == 1 --> J == 0")
+    return message
+
+def decrypt_A0 (message):
+
+    from string import ascii_lowercase as abc
+    for caracter in message:
+        if caracter in abc:
+            message = message.replace(caracter, str(abc.find(caracter)))
+        else:
+            continue
+    
+    print("A == 0 --> J == 9")
+    for item in message.split(" "):
+        print(item)
+
+def decrypt_A1 (message):
+
+    from string import ascii_lowercase as abc
+    for caracter in message:
+        if caracter in abc:
+            if abc.find(caracter) == 9:
+                message = message.replace(caracter, str(0))
+            else:   
+                message = message.replace(caracter, str(abc.find(caracter)+1))
+        else:
+            continue
+    
+    print("A == 1 --> J == 0")
+    for item in message.split(" "):
+        print(item)
+    
+
 code = "bch.ga dc.ag bia.jeh bf.jjj hc.gda bf.jjj ea.ahi bc.abb b.aai bbe.ibi gj.hcd cg.jib bcg.jae he.jcb + eh.igh fi.jdd"
-numbers = decrypt(code)
-print(numbers)
-print(get_coordinates(numbers))
+decrypt_A0(code)
+decrypt_A1(code)
+
+#print(get_coordinates(numbers))
 
  
 
