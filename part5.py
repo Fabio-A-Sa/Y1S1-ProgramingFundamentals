@@ -1,6 +1,6 @@
 from string import ascii_uppercase as abc
 
-instructions = ""
+instructions = "Para Santiago por vezes segue-se o azul e só depois o amarelo. Nas termas recupera-se melhor a cantar"
 message1 = "9-13-1-6-21-18-9-19"
 message2 = "19-9-13-15-4-1-12-9-19-21-9-19"
 message3 = "12-9-18-9-19-1-12-15-4"
