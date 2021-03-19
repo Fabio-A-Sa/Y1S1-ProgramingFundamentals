@@ -24,7 +24,7 @@ m1 = to_letters(message1, 0) # IMAFURIS
 m2 = to_letters(message2, 0) # SIMODALISUIS
 m3 = to_letters(message3, 0) # LIRISALOD
 
-def frequency (message):
+def frequency(message):
 
     dictionary = {}
     for letter in message:
@@ -72,4 +72,16 @@ for message in all_messages:
 print("\nTotal sum: {}".format(sum_freqs(dicts)))
 # Total sum: {'I': 7, 'M': 2, 'A': 3, 'F': 1, 'U': 2, 'R': 2, 'S': 5, 'O': 2, 'D': 2, 'L': 3}
 
+all_numbers = [a1, a2, a3]
+dicts_numbers = []
+for numbers in all_numbers:
+    print(frequency(numbers))
+    # A == 0
+    # {1: 1, 6: 1, 9: 2, 13: 1, 18: 1, 19: 1, 21: 1}
+    # {1: 1, 4: 1, 9: 3, 12: 1, 13: 1, 15: 1, 19: 3, 21: 1}
+    # {1: 1, 4: 1, 9: 2, 12: 2, 15: 1, 18: 1, 19: 1}
 
+    dicts_numbers.append(frequency(numbers))
+
+print("\nTotal sum: {}".format(sum_freqs(dicts_numbers)))
+# Total sum: {1: 3, 6: 1, 9: 7, 13: 2, 18: 2, 19: 5, 21: 2, 4: 2, 12: 3, 15: 2}
