@@ -29,3 +29,4 @@ SQLSort OrderBy=Terrain Asc, Difficulty desc
 # Now finally restore our current sort sequence
 SQLSort OrderBy=$CurrentSort
 
+
