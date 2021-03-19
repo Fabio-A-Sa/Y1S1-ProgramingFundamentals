@@ -85,3 +85,24 @@ for numbers in all_numbers:
 
 print("\nTotal sum: {}".format(sum_freqs(dicts_numbers)))
 # Total sum: {1: 3, 6: 1, 9: 7, 13: 2, 18: 2, 19: 5, 21: 2, 4: 2, 12: 3, 15: 2}
+
+def sort_numbers (message):
+
+    solution = ""
+    for number in sorted(message.split("-"), key = lambda y: int(y)):
+        solution += number + "-"
+
+    return solution[:len(solution)-1]
+
+for message in [message1, message2, message3]:
+    print(sort_numbers(message))
+    # 1-6-9-9-13-18-19-21
+    # 1-4-9-9-9-12-13-15-19-19-19-21
+    # 1-4-9-9-12-12-15-18-19
+
+#Drafts
+# 1-      6-9-9-          13-      18-19-       21
+# 1-  4-  9-9-9-  12-     13-15-      19-19-19- 21
+# 1-  4-  9-9-    12-12-     15-   18-19
+
+
