@@ -11,9 +11,11 @@ Endwhile
 
 // Filter by dificulty
 
-
-
 $test = "$d_Difficulty"
 
+
+// Another filter
+
 $data = sqlite("sql","Select * from caches where difficulty = $d_difficulty","")
+
 
