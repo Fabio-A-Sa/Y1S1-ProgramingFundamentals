@@ -9,6 +9,13 @@ m1 = "IMAFURIS"
 m2 = "SIMODALISUIS"
 m3 = "LIRISALOD"
 
+def frequency (message):
+
+    dictionary = {}
+    for letter in message:
+        if letter not in dictionary.keys():
+            
+
 a1 = [int(x) for x in sorted(message1.split("-"), key = lambda x: int(x))]
 print(a1, sum(a1))
 for item in a1:
@@ -23,3 +30,6 @@ a3 = [int(x) for x in sorted(message3.split("-"), key = lambda x: int(x))]
 print(a3, sum(a3))
 for item in a3:
     print(abc[item-1])
+
+for item in [m1, m2, m3]:
+    print(frequency(item))
