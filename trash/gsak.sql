@@ -19,3 +19,13 @@ $test = "$d_Difficulty"
 $data = sqlite("sql","Select * from caches where difficulty = $d_difficulty","")
 
 
+// Order and sorted
+
+$CurrentSort = $_OrderBy
+#Change our sort sequence to do some work in our desired sequence
+SQLSort OrderBy=Terrain Asc, Difficulty desc
+# do some work here
+#....
+# Now finally restore our current sort sequence
+SQLSort OrderBy=$CurrentSort
+
