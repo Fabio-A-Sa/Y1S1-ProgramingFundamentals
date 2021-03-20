@@ -5,7 +5,7 @@ This repository contains all the exercises and assessments of the UC Programming
 <br/>
 <p align="center">
   <h2 align="center">
-    Final Grade 17/20
+    Final Grade: 17/20
   </p>
   <img 
        title = "FEUP logo"
