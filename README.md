@@ -31,7 +31,7 @@ Available on [FPRO Test](https://fpro.fe.up.pt/test). <br/>
 ### CH - Challenges in Python<br/>
 The challenges are extra work for more advanced Python programmers that easily solve the regular exercises. Available on [Moodle](https://moodle.up.pt/course/view.php?id=1738). <br/>
 
-### PE = Practical on computer Evaluation <br/>
+### PE - Practical on computer Evaluation <br/>
 Individual programming assignments. Available on [FPRO Test](https://fpro.fe.up.pt/test).
 
 <br/>
