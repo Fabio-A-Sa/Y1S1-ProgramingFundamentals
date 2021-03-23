@@ -10458,3 +10458,33 @@ for message in [message1, message2, message3]:
     # 1-6-9-9-13-18-19-21
     # 1-4-9-9-9-12-13-15-19-19-19-21
     # 1-4-9-9-12-12-15-18-19
+
+def remove_py_com(txt):
+
+    flag = False    # Indica se está dentro de uma string. No início está falso.
+    solution = ""   # Vai acumular os caracteres
+
+    for character in txt:
+
+        if character != '#' and character != '"':   # Se não for nenhum dos dois itens essenciais,
+            solution += character                   # Acrescenta à solução.
+
+        if character == '"':
+            flag = not flag         # Flag passa a Verdade, ou seja, está dentro de uma string e tudo
+            solution += character     # o que está lá dentro vai ser considerado. Quando encontrar um novo '"'
+                                    # Passa novamente a falso, ou seja, sai da string.
+
+        if character == '#' and flag:
+            solution += character       # Se estiver dentro da string (flag == true), 
+                                        # coloca o símbolo '#' na mesma.
+
+        if character == "#" and not flag:
+            break                           # Se estiver fora de uma string (flag == false), ignora tudo o que está à frente
+                                            # Pára o ciclo e retorna o resultado
+    return solution
+
+test1 = 'def f(x): # f function'
+test2 = 'x = x + "abc # def" + "cd# +" # + "abc"'
+
+print(remove_py_com(test1)) # Output: 'def f(x): '
+print(remove_py_com(test2)) # Output: 'x = x + "abc # def" + "cd# +"'
