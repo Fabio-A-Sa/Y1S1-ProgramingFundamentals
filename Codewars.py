@@ -50,3 +50,18 @@ def scramble(s1, s2):
 
 print(scramble('rkqodlw', 'world'))
 print(scramble('mdhyenfeihyjm', 'pkdayaxhirdwqnfhe'))
+
+def lcs (x, y):
+
+    solution = ""
+    big = x if len(x) >= len(y) else y
+    small = x if big != x else y
+    
+    for char in big:
+        if char in small:
+            solution += char
+    return solution
+
+print(lcs( "132535365" , "123456789" ))
+
+
