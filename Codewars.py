@@ -43,8 +43,10 @@ def scramble(s1, s2):
     
     flag = True
     for char in s2:
-        flag = flag and (counter(s1, char) >= counter(s2, char))
+        flag = flag and (counter(s1, char) >= counter(s2, char) and len(s1) >= len(s2))
+        if not flag:
+            break
     return flag
 
 print(scramble('rkqodlw', 'world'))
-print(scramble('cedewaraaossoqqyt', 'codewars'))
+print(scramble('mdhyenfeihyjm', 'pkdayaxhirdwqnfhe'))
