@@ -1,22 +1,27 @@
-def isPP(n):
+def factorial (n):
+
+    if n == 1:
+        return n
+    else:
+        return n * factorial(n-1)
+
+def iter_factorial(n):
+
+    total = 1
+    while (n > 1):
+        total = total * n
+        n = n-1
+
+    return total
+
+def going(n):
     
-    from math import pow, sqrt
-    solution = []
+    denominator = iter_factorial(n)
+    numerator = 0
+    for number in range(1, n+1):
+        numerator = numerator + iter_factorial(number)
 
-    for i in range (2, int(sqrt(n)+4)):
-        for j in range(2, int(sqrt(n)+4)):
+    solution = str(numerator/denominator)
+    return float(solution[:solution.find(".")+7])
 
-            if pow(i, j) == n:
-                solution.append(i)
-                solution.append(j)
-                return solution
-
-            if pow(i, j) > n:
-                break
-            
-        else:
-            continue
-
-    return None
-
-print(isPP(8))
+print(going(7))
