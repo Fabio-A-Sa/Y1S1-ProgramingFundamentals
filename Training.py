@@ -1,34 +1,22 @@
-def to_underscore(string):
-
-    from string import ascii_lowercase as abc
-    ABC = abc.upper()
-    words = []
-    word = ""
-
-    try:
-        number = int(string)
-        return str(number)
-
-    except:
-        return ""
+def isPP(n):
     
-    finally:
-        
-        for char in str(string):
-            if char in abc:
-                word = word + char
-            elif char in ABC:
-                words.append(word)
-                word = char
-            else:
-                word += char
-        words.append(word)
-    
-        solution = ""
-        for word in words[1:]:
-            solution += word.lower() + "_"
+    from math import pow, sqrt
+    solution = []
 
-        return solution[:len(solution)-1]
+    for i in range (2, int(sqrt(n)+4)):
+        for j in range(2, int(sqrt(n)+4)):
 
-print(to_underscore('TestController'))
-print(to_underscore('App7Test'))
+            if pow(i, j) == n:
+                solution.append(i)
+                solution.append(j)
+                return solution
+
+            if pow(i, j) > n:
+                break
+            
+        else:
+            continue
+
+    return None
+
+print(isPP(8))
