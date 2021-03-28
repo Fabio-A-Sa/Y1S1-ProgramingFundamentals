@@ -28,3 +28,23 @@ ls = [100, 76, 56, 44, 89, 73, 68, 56, 64, 123, 2333, 144, 50, 132, 123, 34, 89]
 k = 4
 t = 230
 print(choose_best_sum(t, k, ls))
+
+def counter (string, char):
+
+    counter = 0
+    for c in string:
+        if c == char:
+            counter = counter + 1
+        else:
+            continue
+    return counter
+
+def scramble(s1, s2):
+    
+    flag = True
+    for char in s2:
+        flag = flag and (counter(s1, char) >= counter(s2, char))
+    return flag
+
+print(scramble('rkqodlw', 'world'))
+print(scramble('cedewaraaossoqqyt', 'codewars'))
