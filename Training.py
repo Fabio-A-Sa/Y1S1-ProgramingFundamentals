@@ -1,24 +1,28 @@
-def is_merge(s, part1, part2):
+def binary_to_decimal(string):
 
-    solution = s 
-    attemp = part1 + part2
+    from math import pow
+    exponent = 0
+    decimal = 0
 
-    if solution == attemp:
-        return True
+    while (exponent != len(string)):
 
-    if attemp == "cwdroeas" or attemp == "codewasr":
-        return False
+        digit = int(string[exponent])
+        decimal = decimal + pow(2, exponent)*digit
+        exponent += 1
 
-    if len(solution) != len(attemp):
-        return False
+    return round(decimal)
 
-    sorted_solution = "".join(sorted(([x for x in solution]), key = None))
-    sorted_attemp = "".join(sorted(([y for y in attemp]), key = None))
 
-    for index in range(0, len(sorted_solution)):
-        if sorted_solution[index] != sorted_attemp[index]:
+def pattern (string):
+
+    available = ['0', '1']
+    number = ""
+    for char in string:
+        number = char + number
+        if char not in available:
             return False
-    
-    return True
 
-print(is_merge("codewars", "code", "wars"))
+    decimal = binary_to_decimal(number)
+    return decimal % 3 == 0
+
+print(pattern("111"))
