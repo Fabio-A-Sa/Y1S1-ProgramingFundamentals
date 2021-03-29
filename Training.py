@@ -1,16 +1,15 @@
-def find_it(seq):
+def middle_permutation(string):
+    
+    from itertools import permutations
 
-    dictionary = {}
+    letters = []
+    for letter in string:
+        letters.append(letter)
 
-    for number in seq:
-        if number not in dictionary.keys():
-            dictionary[number] = dictionary.get(number, 0) + 1
-        else:
-            dictionary[number] += 1
-    for number, times in dictionary.items():
-        if times % 2 == 1:
-            return number
+    possible_attemps = list(permutations(letters))
+    middle = possible_attemps[int(round(len(possible_attemps) / 2 - 1))]
+    solution = "".join(middle)
 
-    return None
+    return solution
 
-print(find_it([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]))
+print(middle_permutation("abc"))
