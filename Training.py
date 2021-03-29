@@ -25,3 +25,18 @@ def going(n):
     return float(solution[:solution.find(".")+7])
 
 print(going(7))
+
+def run ():
+
+    c = []
+    for i in range(4, 60):
+        comentario = str(input("Next: "))
+        if i < 10:
+            c.append("[Atualização 15:0{}] : {} ".format(i, comentaSrio))
+        else:
+            c.append("[Atualização 15:{}] : ".format(i, comentario))
+    
+    for ci in c:
+        print(ci)
+        
+print(run())
