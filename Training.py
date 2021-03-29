@@ -27,5 +27,4 @@ def mixed_fraction(s):
     except ZeroDivisionError:
         raise ZeroDivisionError
 
-
 print(mixed_fraction("42/9"))
