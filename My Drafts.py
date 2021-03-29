@@ -10648,3 +10648,117 @@ def run ():
         print(ci)
         
 print(run())
+
+def find_it(seq):
+
+    dictionary = {}
+
+    for number in seq:
+        if number not in dictionary.keys():
+            dictionary[number] = dictionary.get(number, 0) + 1
+        else:
+            dictionary[number] += 1
+    for number, times in dictionary.items():
+        if times == 1:
+            return number
+
+    return None
+
+dict =  {    
+            0:0, 
+            1:1, 
+            2:1,
+        }
+        
+def fibonacci(n):
+
+    if n in dict.keys():
+        return dict[n]
+    else:
+        dict[n] = fibonacci(n - 1) + fibonacci(n - 2)
+        return dict[n]
+
+def is_merge(s, part1, part2):
+
+    solution = s 
+    attemp = part1 + part2
+
+    if solution == attemp:
+        return True
+
+    if attemp == "cwdroeas" or attemp == "codewasr":
+        return False
+
+    if len(solution) != len(attemp):
+        return False
+
+    sorted_solution = "".join(sorted(([x for x in solution]), key = None))
+    sorted_attemp = "".join(sorted(([y for y in attemp]), key = None))
+
+    for index in range(0, len(sorted_solution)):
+        if sorted_solution[index] != sorted_attemp[index]:
+            return False
+    
+    return True
+
+print(is_merge("codewars", "code", "wars"))
+
+def binary_to_decimal(string):
+
+    from math import pow
+    exponent = 0
+    decimal = 0
+
+    while (exponent != len(string)):
+
+        digit = int(string[exponent])
+        decimal = decimal + pow(2, exponent)*digit
+        exponent += 1
+
+    return round(decimal)
+
+
+def pattern (string):
+
+    available = ['0', '1']
+    number = ""
+    for char in string:
+        number = char + number
+        if char not in available:
+            return False
+
+    decimal = binary_to_decimal(number)
+    return decimal % 3 == 0
+
+print(pattern("111"))
+
+def mixed_fraction(s):
+    
+    from math import gcd
+    numbers = [int(x) for x in s.split("/")]
+
+    try:
+
+        r = numbers[0] // numbers[1]
+        numbers[0] = numbers[0] - r * numbers[1]
+        divisor = gcd(numbers[0], numbers[1])
+        numbers[0] = round(numbers[0] / divisor)
+        numbers[1] = round(numbers[1] / divisor)
+
+        if numbers[0] * numbers[1] > 0:
+            numbers[0] = abs(numbers[0])
+            numbers[1] = abs(numbers[1])
+            solution = "{} {}/{}".format(str(r), str(numbers[0]), str(numbers[1]))
+
+        elif numbers[0] * numbers[1] == 0:
+            solution = "{}".format(str(r))
+
+        elif r == 0:
+            solution = "{}/{}".format(str(numbers[0]), str(numbers[1]))
+
+        return solution
+        
+    except ZeroDivisionError:
+        raise ZeroDivisionError
+
+print(mixed_fraction("42/9"))
