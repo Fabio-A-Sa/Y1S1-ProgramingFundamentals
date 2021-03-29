@@ -1,14 +1,14 @@
-def find_it(seq):
+dict =  {    
+            0:0, 
+            1:1, 
+            2:1,
+        }
+def fibonacci(n):
 
-    dictionary = {}
+    if n in dict.keys():
+        return dict[n]
+    else:
+        dict[n] = fibonacci(n - 1) + fibonacci(n - 2)
+        return dict[n]
 
-    for number in seq:
-        if number not in dictionary.keys():
-            dictionary[number] = dictionary.get(number, 0) + 1
-        else:
-            dictionary[number] += 1
-    for number, times in dictionary.items():
-        if times == 1:
-            return number
-
-    return None
+print(fibonacci(50))
