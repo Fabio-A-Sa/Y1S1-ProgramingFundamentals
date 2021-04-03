@@ -468,3 +468,6 @@ def pipe_fix(nums):
 
 def find_smallest_int(arr):
     return min(arr)
+
+def double_integer(i):
+    return 2*i
