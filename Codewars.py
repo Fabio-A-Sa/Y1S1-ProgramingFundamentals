@@ -465,3 +465,6 @@ def pipe_fix(nums):
         solution.append(number)
   
     return solution
+
+def find_smallest_int(arr):
+    return min(arr)
