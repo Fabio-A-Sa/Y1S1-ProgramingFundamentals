@@ -1,17 +1,12 @@
-def is_vow(inp):
+def how_many_dalmatians(n):
 
-    vowels =  {
-                97: 'a', 
-                101: 'e',
-                105: 'i',
-                111: 'o', 
-                117: 'u',
-              }
+    dogs = ["Hardly any", "More than a handful!", "Woah that's a lot of dogs!", "101 DALMATIONS!!!"]
     
-    exp = []
-    for item in inp:
-        if item in vowels.keys():
-            item = vowels[item]
-        exp.append(item)
-        
-    return exp
+    if n <= 10:
+        return dogs[0]
+    elif n <= 50:
+        return dogs[1] 
+    elif n == 101:
+        return dogs[3] 
+    else:
+        return dogs[2]
