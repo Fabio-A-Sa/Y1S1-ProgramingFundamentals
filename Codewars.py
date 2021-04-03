@@ -372,3 +372,9 @@ def next_bigger(n):
 
 n = 2021
 print(next_bigger(n))
+
+def generate_range(min, max, step):
+    next = []
+    for number in range (min, max, step):
+        next.append(number)
+    return next
