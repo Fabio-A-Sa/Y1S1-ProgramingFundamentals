@@ -478,3 +478,15 @@ def greet(name, owner):
 def apple(x):
     from math import pow
     return "It's hotter than the sun!!" if pow(int(x), 2) > 1000 else 'Help yourself to a honeycomb Yorkie for the glovebox.'
+
+def two_sort(array):
+
+    array = sorted(array, key = lambda x : str(x))
+    word = array[0]
+    solution = ""
+    for letter in word:
+        solution = solution + letter + "***"
+
+    return solution[:len(solution)-3]
+
+print(two_sort(["turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"]))

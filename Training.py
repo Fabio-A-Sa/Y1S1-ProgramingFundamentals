@@ -1,11 +1,11 @@
-def pipe_fix(nums):
-  
-    nums = sorted(nums, key = None)
-    minimum = nums[0]
-    maximum = nums[-1] + 1
+def two_sort(array):
 
-    solution = []
-    for number in range(minimum, maximum):
-        solution.append(number)
-  
-  return solution
+    array = sorted(array, key = lambda x : str(x))
+    word = array[0]
+    solution = ""
+    for letter in word:
+        solution = solution + letter + "***"
+
+    return solution[:len(solution)-3]
+
+print(two_sort(["turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"]))
