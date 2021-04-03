@@ -471,3 +471,10 @@ def find_smallest_int(arr):
 
 def double_integer(i):
     return 2*i
+
+def greet(name, owner):
+    return "Hello boss" if name == owner else "Hello guest"
+
+def apple(x):
+    from math import pow
+    return "It's hotter than the sun!!" if pow(int(x), 2) > 1000 else 'Help yourself to a honeycomb Yorkie for the glovebox.'
