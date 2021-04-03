@@ -10843,3 +10843,161 @@ def next_bigger(n):
 
 n = 2021
 print(next_bigger(n))
+
+def generate_range(min, max, step):
+    next = []
+    for number in range (min, max, step):
+        next.append(number)
+    return next
+
+def mouth_size(animal): 
+  return "small" if animal.lower() == "alligator" else "wide"
+
+def quarter_of(month):
+    
+    dictionary = {1:1, 2:1, 3:1, 4:2, 5:2, 6:2, 7:3, 8:3, 9:3, 10:4, 11:4, 12:4}
+    return dictionary[month]
+
+    # Another solution
+    if month in [1, 2, 3]:
+      return 1
+    elif month in [4, 5, 6]:
+      return 2
+    elif month in [7, 8, 9]:
+      return 3
+    else:
+      return 4
+
+def converter(mpg):
+    return round((mpg*1.609344/4.54609188), 2)
+
+def replace_dots(str):
+    return str.replace(".", "-")
+
+def human_years_cat_years_dog_years(human_years):
+    
+    catYears = 0
+    dogYears = 0
+
+    for year in range (1, human_years+1):
+        if year == 1:
+            dogYears += 15
+            catYears += 15
+        elif year == 2:
+            dogYears += 9
+            catYears += 9
+        else:
+            dogYears += 5
+            catYears += 4
+
+    return [human_years, catYears, dogYears]
+
+def reverse_seq(n):
+    return [x for x in range(1, n+1)][::-1]
+
+def remove_exclamation_marks(s):
+    return s.replace("!", "")
+
+def temple_strings(obj, feature): 
+    return obj + " are " + feature
+
+def logical_calc(array, op):
+
+    if op == "AND":
+        FLAG = True
+        for boolean in array:
+            FLAG = FLAG and boolean
+
+    elif op == "OR":
+        FLAG = False
+        for boolean in array:
+            FLAG = FLAG or boolean
+
+    else:
+        if len(array) == 1:
+            FLAG = array[0]
+        elif len(array) == 2:
+            FLAG = array[0] ^ array[1]  
+        else:
+            FLAG = array[0] ^ array[1]  
+            for index in range (2, len(array)):
+              FLAG = FLAG ^ array[index]
+           
+    return FLAG
+
+def pipe_fix(nums):
+
+    nums = sorted(nums, key = None)
+    minimum = nums[0]
+    maximum = nums[-1] + 1
+
+    solution = []
+    for number in range(minimum, maximum):
+        solution.append(number)
+  
+    return solution
+
+def find_smallest_int(arr):
+    return min(arr)
+
+def double_integer(i):
+    return 2*i
+
+def greet(name, owner):
+    return "Hello boss" if name == owner else "Hello guest"
+
+def apple(x):
+    from math import pow
+    return "It's hotter than the sun!!" if pow(int(x), 2) > 1000 else 'Help yourself to a honeycomb Yorkie for the glovebox.'
+
+def two_sort(array):
+
+    array = sorted(array, key = lambda x : str(x))
+    word = array[0]
+    solution = ""
+    for letter in word:
+        solution = solution + letter + "***"
+
+    return solution[:len(solution)-3]
+
+print(two_sort(["turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"]))
+
+def is_vow(inp):
+
+    vowels =  {
+                97: 'a', 
+                101: 'e',
+                105: 'i',
+                111: 'o', 
+                117: 'u',
+              }
+    
+    exp = []
+    for item in inp:
+        if item in vowels.keys():
+            item = vowels[item]
+        exp.append(item)
+        
+    return exp
+
+def how_many_dalmatians(n):
+
+    dogs = ["Hardly any", "More than a handful!", "Woah that's a lot of dogs!", "101 DALMATIONS!!!"]
+    
+    if n <= 10:
+        return dogs[0]
+    elif n <= 50:
+        return dogs[1] 
+    elif n == 101:
+        return dogs[3] 
+    else:
+        return dogs[2]
+
+def check(seq, elem):
+    return elem in seq
+
+def sum_mix(arr):
+    total = 0
+    for number in arr:
+        total += int(number)
+    return total
