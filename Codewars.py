@@ -378,3 +378,6 @@ def generate_range(min, max, step):
     for number in range (min, max, step):
         next.append(number)
     return next
+
+def mouth_size(animal): 
+  return "small" if animal.lower() == "alligator" else "wide"
