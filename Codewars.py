@@ -399,3 +399,6 @@ def quarter_of(month):
 
 def converter(mpg):
     return round((mpg*1.609344/4.54609188), 2)
+
+def replace_dots(str):
+    return str.replace(".", "-")

@@ -1,3 +1,2 @@
-def converter(mpg):
-
-   return round(kpl, 2) 
+def replace_dots(str):
+    return str.replace(".", "-")
