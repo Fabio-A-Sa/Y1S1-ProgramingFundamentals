@@ -383,7 +383,10 @@ def mouth_size(animal):
   return "small" if animal.lower() == "alligator" else "wide"
 
 def quarter_of(month):
-  
+    
+    dictionary = {1:1, 2:1, 3:1, 4:2, 5:2, 6:2, 7:3, 8:3, 9:3, 10:4, 11:4, 12:4}
+    return dictionary[month]
+    
     if month in [1, 2, 3]:
       return 1
     elif month in [4, 5, 6]:
