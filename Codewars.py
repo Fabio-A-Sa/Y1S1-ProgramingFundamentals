@@ -521,3 +521,12 @@ def how_many_dalmatians(n):
         return dogs[3] 
     else:
         return dogs[2]
+
+def check(seq, elem):
+    return elem in seq
+
+def sum_mix(arr):
+    total = 0
+    for number in arr:
+        total += int(number)
+    return total
