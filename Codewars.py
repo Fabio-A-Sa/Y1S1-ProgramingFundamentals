@@ -575,3 +575,6 @@ def fake_bin(x):
 
 def fix_the_meerkat(arr):
     return arr[::-1]
+
+def nth_even(n):
+    return 2*(n-1)
