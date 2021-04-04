@@ -578,3 +578,11 @@ def fix_the_meerkat(arr):
 
 def nth_even(n):
     return 2*(n-1)
+
+def between(a,b):
+
+    solution = []
+    for i in range (a, b+1):
+        solution.append(i)
+
+    return solution
