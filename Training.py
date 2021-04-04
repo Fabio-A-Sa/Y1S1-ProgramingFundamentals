@@ -1,3 +1,2 @@
-def fix_the_meerkat(arr):
-    
-    
+def dna_to_rna(dna):
+    return dna.replace("T", "U")

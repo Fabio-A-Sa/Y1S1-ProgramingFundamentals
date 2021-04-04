@@ -586,3 +586,6 @@ def between(a,b):
         solution.append(i)
 
     return solution
+
+def dna_to_rna(dna):
+    return dna.replace("T", "U")
