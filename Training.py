@@ -1,18 +1,20 @@
-def comp(array1, array2):
-
-    if len(array1) != len(array2) or array1 == None or array2 == None or not len(array1) * len(array2):
-        return False
+solution = []
+def tourney(inp):
     
-    from math import pow, sqrt
-    flag = True
-    for number in array1:
-        flag = pow(number, 2) in array2 and flag
-    
-    for number in array2:
-        try:
-            flag = sqrt(number) in array1 and flag 
-        except:
-            return false
+    solution.append(inp)
+    if len(inp) == 2:
+        solution.append([max(inp)])
+        ret = []
+        for item in solution:
+            if item not in ret:
+                ret.append(item)
+        return ret
 
-    return flag
-	
+    else:
+        sol = []
+        while (len(inp)):
+            sol.append(max(inp[:2]))
+            inp = inp[2:]
+        return tourney(sol)
+
+print(tourney([9, 5, 4, 7, 6, 3, 8]))
