@@ -11099,3 +11099,45 @@ def order(sentence):
     return solution.strip()
 
 print(order("4of Fo1r pe6ople g3ood th5e the2"))
+
+def comp(array1, array2):
+
+    try:
+        if len(array1) != len(array2) or array1 == None or array2 == None or not len(array1) * len(array2):
+            return False
+    except:
+        return False
+    
+    from math import pow, sqrt
+    flag = True
+    for number in array1:
+        flag = pow(number, 2) in array2 and flag
+    
+    for number in array2:
+        try:
+            flag = round(sqrt(number)) in array1 and flag 
+        except:
+            return false
+
+    return flag
+
+solution = []
+def tourney(inp):
+    
+    solution.append(inp)
+    if len(inp) == 2:
+        solution.append([max(inp)])
+        ret = []
+        for item in solution:
+            if item not in ret:
+                ret.append(item)
+        return ret
+
+    else:
+        sol = []
+        while (len(inp)):
+            sol.append(max(inp[:2]))
+            inp = inp[2:]
+        return tourney(sol)
+
+print(tourney([9, 5, 4, 7, 6, 3, 8]))
