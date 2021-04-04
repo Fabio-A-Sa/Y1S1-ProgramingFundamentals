@@ -11001,3 +11001,75 @@ def sum_mix(arr):
     for number in arr:
         total += int(number)
     return total
+
+def race(v1, v2, g):
+    
+    from math import floor
+    
+    if v2 <= v1:
+        return None
+
+    else:
+
+        time = floor((g / (v2-v1))*60*60)
+        hours = time // (60*60)
+        time = time - hours*60*60
+        minutes = time // 60
+        time = time - minutes*60
+        seconds = time
+        return [hours, minutes, seconds]
+
+print(race(720, 850, 70))
+
+geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+def goose_filter(birds):
+    
+    solution = []
+    for bird in birds:
+        if bird not in geese:
+            solution.append(bird)
+        else:
+            continue
+    
+    return solution
+
+def fake_bin(x):
+    
+    fake = ""
+    for char in x:
+        if int(char) < 5:
+            fake += "0"
+        else:
+            fake += "1"
+
+    return fake
+
+def fix_the_meerkat(arr):
+    return arr[::-1]
+
+def nth_even(n):
+    return 2*(n-1)
+
+def between(a,b):
+
+    solution = []
+    for i in range (a, b+1):
+        solution.append(i)
+
+    return solution
+    return [x for x in range(a, b+1)]
+
+def dna_to_rna(dna):
+    return dna.replace("T", "U")
+
+def lovefunc( flower1, flower2 ):
+    return (flower1+flower2)%2 == 1
+
+def rental_car_cost(d):
+    
+    if d < 3:
+        return d*40
+    elif d < 7 and d >=3:
+        return d*40 - 20
+    else:
+        return d*40 - 50
