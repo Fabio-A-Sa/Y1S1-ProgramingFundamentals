@@ -586,6 +586,11 @@ def between(a,b):
         solution.append(i)
 
     return solution
+    return [x for x in range(a, b+1)]
 
 def dna_to_rna(dna):
     return dna.replace("T", "U")
+
+def lovefunc( flower1, flower2 ):
+    return (flower1+flower2)%2 == 1
+    

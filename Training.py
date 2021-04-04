@@ -1,2 +1,2 @@
-def dna_to_rna(dna):
-    return dna.replace("T", "U")
+def lovefunc( flower1, flower2 ):
+    return (flower1+flower2)%2 == 0
