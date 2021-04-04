@@ -602,3 +602,18 @@ def rental_car_cost(d):
         return d*40 - 20
     else:
         return d*40 - 50
+
+def spin_words(sentence):
+
+    words = sentence.split(" ")
+    solution = ""
+    for word in words:
+        if len(word) < 5:
+            solution += word + " "
+        else:
+            compound = ""
+            for char in word:
+                compound = char + compound
+            solution += compound + " "
+    
+    return solution.strip()

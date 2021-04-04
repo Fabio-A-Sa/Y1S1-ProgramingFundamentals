@@ -1,8 +1,14 @@
-def rental_car_cost(d):
+def spin_words(sentence):
+
+    words = sentence.split(" ")
+    solution = ""
+    for word in words:
+        if len(word) < 5:
+            solution += word + " "
+        else:
+            compound = ""
+            for char in word:
+                compound = char + compound
+            solution += word + " "
     
-    if d < 3:
-        return d*40
-    elif d < 7 and d >=3:
-        return d*40 - 20
-    else:
-        return d*40 - 50
+    return solution.strip()
