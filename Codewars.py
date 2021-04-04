@@ -561,3 +561,14 @@ def goose_filter(birds):
             continue
     
     return solution
+
+def fake_bin(x):
+    
+    fake = ""
+    for char in x:
+        if int(char) < 5:
+            fake += "0"
+        else:
+            fake += "1"
+
+    return fake
