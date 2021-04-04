@@ -549,3 +549,15 @@ def race(v1, v2, g):
         return [hours, minutes, seconds]
 
 print(race(720, 850, 70))
+
+geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+def goose_filter(birds):
+    
+    solution = []
+    for bird in birds:
+        if bird not in geese:
+            solution.append(bird)
+        else:
+            continue
+    
+    return solution
