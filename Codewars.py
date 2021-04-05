@@ -714,3 +714,12 @@ def compute_sum(n):
     return total
 
 print(compute_sum(12))
+
+def valid_word(seq, word): 
+
+    valid = ""
+    for letters in seq:
+        if letters not in word:
+            return False
+
+    return True if len(seq) else False
