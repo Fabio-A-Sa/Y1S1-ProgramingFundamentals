@@ -11141,3 +11141,41 @@ def tourney(inp):
         return tourney(sol)
 
 print(tourney([9, 5, 4, 7, 6, 3, 8]))
+
+def f(n):
+    if n < 0:
+        return None
+    else:
+        val = 1 if n == 0 else (
+                   n - f(n - 1))
+        return val
+  
+def m(n):
+    if n < 0:
+        return None
+    else:
+        val = 1 if n == 0 else (
+                   n - m(n - 1))
+        return val
+
+def compute_sum(n):
+
+    numbers = ""
+    for number in range(1, n+1):
+        numbers += str(number)
+    total = 0
+    for number in numbers:
+        total += int(number)
+
+    return total
+
+print(compute_sum(12))
+
+def valid_word(seq, word): 
+
+    valid = ""
+    for letters in seq:
+        if letters not in word:
+            return False
+
+    return True if len(seq) else False
