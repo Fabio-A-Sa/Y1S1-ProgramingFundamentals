@@ -1,20 +1,12 @@
-solution = []
-def tourney(inp):
-    
-    solution.append(inp)
-    if len(inp) == 2:
-        solution.append([max(inp)])
-        ret = []
-        for item in solution:
-            if item not in ret:
-                ret.append(item)
-        return ret
+def compute_sum(n):
 
-    else:
-        sol = []
-        while (len(inp)):
-            sol.append(max(inp[:2]))
-            inp = inp[2:]
-        return tourney(sol)
+    numbers = ""
+    for number in range(1, n+1):
+        numbers += str(number)
+    total = 0
+    for number in numbers:
+        total += int(number)
 
-print(tourney([9, 5, 4, 7, 6, 3, 8]))
+    return total
+
+print(compute_sum(12))
