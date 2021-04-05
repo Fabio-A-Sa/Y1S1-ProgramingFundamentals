@@ -685,3 +685,19 @@ def tourney(inp):
         return tourney(sol)
 
 print(tourney([9, 5, 4, 7, 6, 3, 8]))
+
+def f(n):
+    if n < 0:
+        return None
+    else:
+        val = 1 if n == 0 else (
+                   n - f(n - 1))
+        return val
+  
+def m(n):
+    if n < 0:
+        return None
+    else:
+        val = 1 if n == 0 else (
+                   n - m(n - 1))
+        return val
