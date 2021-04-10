@@ -1,19 +1,14 @@
-def split_odd_and_even(n):
+def make_sentences(parts):
     
-    numbers = str(n)
-    alist = []
+    alist = list([x for x in parts if x != "."]) + ['.']
+    sentence = alist[0]
 
-    string = numbers[0]
-    for number in numbers[1:]:  
-    
-        if int(number) % 2 == int(string) % 2:
-            string += number
+    for word in alist[1:]:  
+        if word != '.' and word != ',':
+            sentence += " " + word
         else:
-            alist.append(string)
-            string = number
-    
-    alist.append(string)
-    solution = list([int(x) for x in alist])
-    return solution
-    
-print(split_odd_and_even(123))
+            sentence += word
+    return sentence
+
+sentence = ['The', 'Earth', 'rotates', 'around', 'The', 'Sun', 'in', '365', 'days', ',', 'I', 'know', 'that', '.', '.', '.']
+print(make_sentences(sentence))
