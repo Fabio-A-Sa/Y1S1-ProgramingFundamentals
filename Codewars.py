@@ -737,3 +737,15 @@ def make_upper_case(s):
             solution += char
             
     return solution
+
+from math import pow
+
+def powers_of_two(n):
+    
+    powers = []
+    while (n):
+        powers.append(int(pow(2, n)))
+        n = n - 1
+    powers.append(1)
+
+    return powers[::-1]

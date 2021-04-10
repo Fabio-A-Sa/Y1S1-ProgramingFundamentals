@@ -1,13 +1,10 @@
-from string import ascii_uppercase, ascii_lowercase
+from math import pow
 
-def make_upper_case(s):
+def powers_of_two(n):
+    
+    powers = []
+    while (n):
+        powers.append(int(pow(2, n)))
+        n = n - 1
 
-    solution = ""
-    for char in s:
-        if char in ascii_lowercase:
-            index = ascii_lowercase.find(char)
-            solution += ascii_uppercase[index]
-        else:
-            solution += char
-            
-    return solution
+    return powers[::-1]
