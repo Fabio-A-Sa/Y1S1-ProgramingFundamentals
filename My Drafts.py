@@ -11180,6 +11180,4 @@ def valid_word(seq, word):
 
     return True if len(seq) else False
 
-def swap_values(args): 
-    args[0], args[1] = args[1], args[0]
-    return args
+    
