@@ -11180,3 +11180,325 @@ def valid_word(seq, word):
 
     return True if len(seq) else False
 
+from string import ascii_uppercase, ascii_lowercase
+
+def make_upper_case(s):
+
+    solution = ""
+    for char in s:
+        if char in ascii_lowercase:
+            index = ascii_lowercase.find(char)
+            solution += ascii_uppercase[index]
+        else:
+            solution += char
+            
+    return solution
+
+from math import pow
+
+def powers_of_two(n):
+    
+    powers = []
+    while (n):
+        powers.append(int(pow(2, n)))
+        n = n - 1
+    powers.append(1)
+
+    return powers[::-1]
+
+def people_with_age_drink(age):
+    
+    dictionary =    {
+                        'toddy' : list([x for x in range(0, 14)]) ,
+                        'coke' : list([y for y in range(14, 18)]) ,
+                        'beer' : list([z for z in range(18, 21)]) ,
+                        'whisky' : list([t for t in range(21, 200)]) ,
+                    }
+
+    for word in dictionary.keys():
+        if age in dictionary[word]:
+            return "drink " + word
+
+    return None
+
+def swap_values(args): 
+    args[0], args[1] = args[1], args[0]
+    return args
+
+def factorial (number) :
+
+    if number == 1 or number <= 0:
+        return 1
+    else:
+        return number * factorial (number-1)
+
+def make_combination (n, r):
+
+    result = int(factorial(n) / (factorial(n-r) * factorial(r)))
+    return result
+
+def get_participants(handshakes):
+
+    if handshakes == 0:
+        return 1
+    elif handshakes == 1:
+        return 2
+    elif handshakes == 2:
+        return 3
+    else:
+
+        counter = 3
+        while (True):
+
+            attemp = make_combination(counter, 2)
+            if attemp >= handshakes:
+                break
+            else:
+                counter += 1
+        
+        return counter
+
+print(get_participants(6))
+
+def inside_out(st):
+    
+    alist = list([x for x in st.split(" ")]) if len(st) > 1 else [st]
+    string = ""
+
+    for word in alist:
+        
+        result = ""
+
+        if len(word) % 2 == 0:
+
+            left_characters = [word[x] for x in range(0, int(len(word) / 2))]
+            right_characters = [word[y] for y in range(int(len(word) / 2), len(word))]
+
+            for char in left_characters[::-1]:
+                result += char
+            for char in right_characters[::-1]:
+                result += char
+
+        else:
+            
+            if len(word) > 1:
+
+                lose_character = word[int(len(word) / 2)]
+                left_characters = [word[x] for x in range(0, int(len(word) / 2))]
+                right_characters = [word[y] for y in range(int(len(word) / 2) + 1, len(word) )]
+
+                for char in left_characters[::-1]:
+                    result += char
+                result += lose_character
+                for char in right_characters[::-1]:
+                    result += char
+            
+            else:
+                result = word
+
+        string += result + " "
+
+    return string[:len(string)-1]
+
+from string import ascii_lowercase as abc
+
+def score(word):
+
+    score = 0
+    for char in word:
+        score = score + int(abc.find(char)+1)
+    return score
+
+def high(x):
+    
+    words = [x for x in x.lower().split(" ")]
+    max_word = ""
+    max_score = 0
+
+    for word in words:
+
+        max_word = word if score(word) > max_score else max_word
+        max_score = score(word) if score(word) > max_score else max_score
+
+    return max_word
+
+print(high('what time are we climbing up the volcano'))
+
+def make_a_window(num): 
+    
+    begin = (3 + 2 * num) * '-' + '\n'
+    end = (3 + 2 * num) * '-'
+    middle = '|' + num * '-' + '+' + num * '-' +  '|' + '\n'
+    static = '|' + num * '.' + '|' + num * '.' + '|' + '\n'
+
+    return begin + num*static + middle + num*static + end
+
+print(make_a_window(10))
+
+def split_odd_and_even(n):
+    
+    numbers = str(n)
+    alist = []
+
+    string = numbers[0]
+    for number in numbers[1:]:  
+    
+        if int(number) % 2 == int(string) % 2:
+            string += number
+        else:
+            alist.append(string)
+            string = number
+    
+    alist.append(string)
+    solution = list([int(x) for x in alist])
+    return solution
+    
+print(split_odd_and_even(123))
+
+def make_sentences(parts):
+    
+    alist = list([x for x in parts if x != "."]) + ['.']
+    sentence = alist[0]
+
+    for word in alist[1:]:  
+        if word != '.' and word != ',':
+            sentence += " " + word
+        else:
+            sentence += word
+            
+    return sentence
+
+sentence = ['The', 'Earth', 'rotates', 'around', 'The', 'Sun', 'in', '365', 'days', ',', 'I', 'know', 'that', '.', '.', '.']
+print(make_sentences(sentence))
+
+def decipher_message(message):
+    
+    from math import sqrt
+    qtd = int(sqrt(len(message)))
+    
+    square = []
+    line = ""
+    for letter in message:
+        line += letter
+        if len(line) == qtd:
+
+            chars = []
+            for char in line:
+                chars.append(char)
+
+            line = ""
+            square.append(chars)
+
+        else:
+            continue
+
+    solution = ""
+    counter = 0
+
+    while (counter != qtd):
+
+        for chars in square:
+            solution += chars[counter]
+        counter = counter + 1
+ 
+    return solution     
+
+print(decipher_message('ArNran u rstm5twob  e ePb'))
+
+def multiplication_table(size):
+    return list([list([(x+1)*n for x in range(size)]) for n in [x+1 for x in range(size)]])
+
+def print_table(number):
+
+    alist = multiplication_table(number)
+    for line in alist:
+        for number in line:
+            print("{} ".format(number), end = "")
+        print("")
+
+print(print_table(200))
+
+def to_nato(words):
+    
+    dictionary = {
+                    'A' : 'Alfa' ,
+                    'B' : 'Bravo' ,
+                    'C' : 'Charlie' ,
+                    'D' : 'Delta' ,
+                    'E' : 'Echo' ,
+                    'F' : 'Foxtrot' ,
+                    'G' : 'Golf' ,
+                    'H' : 'Hotel' ,
+                    'I' : 'India' ,
+                    'J' : 'Juliett' ,
+                    'K' : 'Kilo' ,
+                    'L' : 'Lima' ,
+                    'M' : 'Mike' ,
+                    'N' : 'November' ,
+                    'O' : 'Oscar' ,
+                    'P' : 'Papa' ,
+                    'Q' : 'Quebec' ,
+                    'R' : 'Romeo' ,
+                    'S' : 'Sierra' ,
+                    'T' : 'Tango' ,
+                    'U' : 'Uniform' ,
+                    'V' : 'Victor' ,
+                    'W' : 'Whiskey' ,
+                    'X' : 'Xray' ,
+                    'Y' : 'Yankee' ,
+                    'Z' : 'Zulu' ,
+                }
+    
+    ponctuation = ['.', '?', '!']
+    solution = ""
+
+    for char in words:
+        if char.upper() in dictionary.keys():
+            solution += dictionary[char.upper()] + " "
+        elif char in ponctuation:
+            solution += char + " "
+        else:
+            continue
+    
+    return solution.strip()
+
+def to_binary (number):
+
+    string = ""
+    while (number):
+
+        aux = number % 2
+        string = str(aux) + string
+        number = (number - aux) // 2
+
+    return string
+
+def swap(s,n):
+
+    binary = to_binary(n)
+    while (len(binary) < len(s)):
+        binary += binary
+    
+    keys = ""
+    key_counter = 0
+    for i in range(len(s)):
+        if s[i] == " ":
+            keys += " "
+        else:
+            keys += binary[key_counter]
+            key_counter += 1
+
+    solution = ""
+    for index in range(len(s)):
+
+        letter = s[index]
+        if keys[index] == '1':
+            letter = letter.swapcase()
+        solution += letter
+
+    print(keys)
+    print(s)
+    print(solution)
+    return solution
+
+print(swap('the quick broWn fox leapt over the fence', 11))
