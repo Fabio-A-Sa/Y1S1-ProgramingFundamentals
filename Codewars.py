@@ -764,3 +764,7 @@ def people_with_age_drink(age):
             return "drink " + word
 
     return None
+
+def swap_values(args): 
+    args[0], args[1] = args[1], args[0]
+    return args
