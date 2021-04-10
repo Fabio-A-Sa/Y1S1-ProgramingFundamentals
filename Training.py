@@ -1,33 +1,45 @@
-def decipher_message(message):
+def to_nato(words):
     
-    from math import sqrt
-    qtd = int(sqrt(len(message)))
+    dictionary = {
+                    'A' : 'Alfa' ,
+                    'B' : 'Bravo' ,
+                    'C' : 'Charlie' ,
+                    'D' : 'Delta' ,
+                    'E' : 'Echo' ,
+                    'F' : 'Foxtrot' ,
+                    'G' : 'Golf' ,
+                    'H' : 'Hotel' ,
+                    'I' : 'India' ,
+                    'J' : 'Juliett' ,
+                    'K' : 'Kilo' ,
+                    'L' : 'Lima' ,
+                    'M' : 'Mike' ,
+                    'N' : 'November' ,
+                    'O' : 'Oscar' ,
+                    'P' : 'Papa' ,
+                    'Q' : 'Quebec' ,
+                    'R' : 'Romeo' ,
+                    'S' : 'Sierra' ,
+                    'T' : 'Tango' ,
+                    'U' : 'Uniform' ,
+                    'V' : 'Victor' ,
+                    'W' : 'Whiskey' ,
+                    'X' : 'Xray' ,
+                    'Y' : 'Yankee' ,
+                    'Z' : 'Zulu' ,
+                }
     
-    square = []
-    line = ""
-    for letter in message:
-        line += letter
-        if len(line) == qtd:
+    ponctuation = ['.', '?', '!', ',']
+    solution = ""
 
-            chars = []
-            for char in line:
-                chars.append(char)
-
-            line = ""
-            square.append(chars)
-
+    for char in words:
+        if char.upper() in dictionary.keys():
+            solution += dictionary[char.upper()] + " "
+        elif char in ponctuation:
+            solution += char + " "
         else:
             continue
+    
+    return solution.strip()
 
-    solution = ""
-    counter = 0
-
-    while (counter != qtd):
-
-        for chars in square:
-            solution += chars[counter]
-        counter = counter + 1
- 
-    print(solution)        
-
-print(decipher_message('ArNran u rstm5twob  e ePb'))
+print(to_nato('If you! can read'))
