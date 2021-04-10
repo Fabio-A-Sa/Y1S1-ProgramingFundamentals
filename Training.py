@@ -1,11 +1,19 @@
-def make_a_window(num): 
+def split_odd_and_even(n):
     
-    begin = (3 + 2 * num) * '-' + '\n'
-    end = (3 + 2 * num) * '-'
-    middle = '|' + num * '-' + '+' + num * '-' +  '|' + '\n'
-    static = '|' + num * '.' + '|' + num * '.' + '|' + '\n'
+    numbers = str(n)
+    alist = []
 
-    print(begin + num*static + middle + num*static + end)
-
-
-print(make_a_window(10))
+    string = numbers[0]
+    for number in numbers[1:]:  
+    
+        if int(number) % 2 == int(string) % 2:
+            string += number
+        else:
+            alist.append(string)
+            string = number
+    
+    alist.append(string)
+    solution = list([int(x) for x in alist])
+    return solution
+    
+print(split_odd_and_even(123))
