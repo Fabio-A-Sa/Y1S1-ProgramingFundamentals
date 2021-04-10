@@ -1,24 +1,11 @@
-from string import ascii_lowercase as abc
-
-def score(word):
-
-    score = 0
-    for char in word:
-        score = score + int(abc.find(char)+1)
-    return score
-
-def high(x):
+def make_a_window(num): 
     
-    words = [x for x in x.lower().split(" ")]
-    max_word = ""
-    max_score = 0
+    begin = (3 + 2 * num) * '-' + '\n'
+    end = (3 + 2 * num) * '-'
+    middle = '|' + num * '-' + '+' + num * '-' +  '|' + '\n'
+    static = '|' + num * '.' + '|' + num * '.' + '|' + '\n'
 
-    for word in words:
-
-        max_word = word if score(word) > max_score else max_word
-        max_score = score(word) if score(word) > max_score else max_score
-
-    return max_word
+    print(begin + num*static + middle + num*static + end)
 
 
-print(high('what time are we climbing up the volcano'))
+print(make_a_window(10))
