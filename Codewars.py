@@ -749,3 +749,18 @@ def powers_of_two(n):
     powers.append(1)
 
     return powers[::-1]
+
+def people_with_age_drink(age):
+    
+    dictionary =    {
+                        'toddy' : list([x for x in range(0, 14)]) ,
+                        'coke' : list([y for y in range(14, 18)]) ,
+                        'beer' : list([z for z in range(18, 21)]) ,
+                        'whisky' : list([t for t in range(21, 200)]) ,
+                    }
+
+    for word in dictionary.keys():
+        if age in dictionary[word]:
+            return "drink " + word
+
+    return None
