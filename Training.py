@@ -1,12 +1,13 @@
-def compute_sum(n):
+from string import ascii_uppercase, ascii_lowercase
 
-    numbers = ""
-    for number in range(1, n+1):
-        numbers += str(number)
-    total = 0
-    for number in numbers:
-        total += int(number)
+def make_upper_case(s):
 
-    return total
-
-print(compute_sum(12))
+    solution = ""
+    for char in s:
+        if char in ascii_lowercase:
+            index = ascii_lowercase.find(char)
+            solution += ascii_uppercase[index]
+        else:
+            solution += char
+            
+    return solution
