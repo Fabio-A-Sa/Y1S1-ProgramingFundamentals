@@ -1,14 +1,33 @@
-def make_sentences(parts):
+def decipher_message(message):
     
-    alist = list([x for x in parts if x != "."]) + ['.']
-    sentence = alist[0]
+    from math import sqrt
+    qtd = int(sqrt(len(message)))
+    
+    square = []
+    line = ""
+    for letter in message:
+        line += letter
+        if len(line) == qtd:
 
-    for word in alist[1:]:  
-        if word != '.' and word != ',':
-            sentence += " " + word
+            chars = []
+            for char in line:
+                chars.append(char)
+
+            line = ""
+            square.append(chars)
+
         else:
-            sentence += word
-    return sentence
+            continue
 
-sentence = ['The', 'Earth', 'rotates', 'around', 'The', 'Sun', 'in', '365', 'days', ',', 'I', 'know', 'that', '.', '.', '.']
-print(make_sentences(sentence))
+    solution = ""
+    counter = 0
+
+    while (counter != qtd):
+
+        for chars in square:
+            solution += chars[counter]
+        counter = counter + 1
+ 
+    print(solution)        
+
+print(decipher_message('ArNran u rstm5twob  e ePb'))

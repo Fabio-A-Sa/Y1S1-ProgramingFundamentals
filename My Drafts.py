@@ -11180,4 +11180,3 @@ def valid_word(seq, word):
 
     return True if len(seq) else False
 
-    
